@@ -1,0 +1,16 @@
+.vs/
+**/bin/
+**/obj/
+**/AppPackages/
+**/TestResults/
+*.user
+*.suo
+*.pfx
+*.cer
+*.appxsym
+*.appxupload
+*.msix
+*.msixbundle
+*.appxbundle
+NXE Installer *.appx
+!NXE Installer 0.2.0.57.appx
