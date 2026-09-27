@@ -109,8 +109,20 @@
     <Content Include="..\..\Assets\NXE\NXE Buttons\USED\xb_y.svg">
       <Link>RetailNXE\ControllerGlyphs\Xbox\xb_y.svg</Link>
     </Content>
+    <!-- Use the existing rendered Xbox legend artwork. These files are shipped
+         unchanged; the SVG text-only views are not used because the UWP SVG
+         renderer does not render their font glyphs reliably. -->
+    <Content Include="..\..\Assets\freestyledash\Skins\Default\Images\Interface\Button Icons\a.png">
+      <Link>RetailNXE\ControllerGlyphs\Xbox\a.png</Link>
+    </Content>
+    <Content Include="..\..\Assets\freestyledash\Skins\Default\Images\Interface\Button Icons\LB.png">
+      <Link>RetailNXE\ControllerGlyphs\Xbox\LB.png</Link>
+    </Content>
+    <Content Include="..\..\Assets\freestyledash\Skins\Default\Images\Interface\Button Icons\y.png">
+      <Link>RetailNXE\ControllerGlyphs\Xbox\y.png</Link>
+    </Content>
     <Content Include="RetailNXE\**\*"
-             Exclude="RetailNXE\ControllerGlyphs\Xbox\xb_a.svg;RetailNXE\ControllerGlyphs\Xbox\xb_lb.svg;RetailNXE\ControllerGlyphs\Xbox\xb_y.svg;RetailNXE\ControllerGlyphs\Xbox\xb_menu.svg;RetailNXE\ControllerGlyphs\Xbox\xb_view.svg" />
+             Exclude="RetailNXE\ControllerGlyphs\Xbox\xb_a.svg;RetailNXE\ControllerGlyphs\Xbox\xb_lb.svg;RetailNXE\ControllerGlyphs\Xbox\xb_y.svg;RetailNXE\ControllerGlyphs\Xbox\xb_menu.svg;RetailNXE\ControllerGlyphs\Xbox\xb_view.svg;RetailNXE\ControllerGlyphs\Xbox\a.png;RetailNXE\ControllerGlyphs\Xbox\LB.png;RetailNXE\ControllerGlyphs\Xbox\y.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />

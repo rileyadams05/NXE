@@ -67,9 +67,9 @@ if (-not $sourceIdentity) { throw 'Source AppxManifest.xml has no Identity eleme
 $sourceIdentity.SetAttribute('Version', $Version)
 $sourceManifest.Save($sourceManifestPath)
 
-& $msbuild $nativeProject /t:Rebuild /p:Configuration=$Configuration /p:Platform=$Platform /m
+& $msbuild $nativeProject /t:Rebuild /p:Configuration=$Configuration /p:Platform=$Platform /p:TrackFileAccess=false /m
 if ($LASTEXITCODE -ne 0) { throw 'NXE native build failed.' }
-& $msbuild $uwpProject /t:Rebuild /p:Configuration=$Configuration /p:Platform=$Platform /p:AppxPackageSigningEnabled=false /m
+& $msbuild $uwpProject /t:Rebuild /p:Configuration=$Configuration /p:Platform=$Platform /p:AppxPackageSigningEnabled=false /p:TrackFileAccess=false /m
 if ($LASTEXITCODE -ne 0) { throw 'NXE dashboard build failed.' }
 
 $dashboardPackage = Get-ChildItem -LiteralPath (Join-Path $dashboardRoot 'UWP\AppPackages') -Filter '*.appx' -Recurse -File |
