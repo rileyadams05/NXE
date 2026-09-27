@@ -52,8 +52,12 @@ namespace NxeDashboard.Shared
                 ExpectedProtocol = "xeniacanary",
                 Architecture = "x64",
                 CanonicalDestinationFileName = "Xenia Canary UWP.appx",
-                SourceType = EmulatorPackageSourceType.ApprovedEmbeddedArtifact,
-                EmbeddedResourceName = "NXE.EmulatorPackages.XeniaCanary.appx",
+                // Resolve the current UWP artifact when upstream publishes one; local approved
+                // packages are always preferred by EmulatorPackageManager before download.
+                SourceType = EmulatorPackageSourceType.GitHubLatestRelease,
+                GitHubRepository = "EmulationCollective/xenia-uwp",
+                RequiredAssetNameParts = new[] { "xenia", "uwp" },
+                RejectedAssetNameParts = new[] { "desktop", "source", "symbols" },
                 MinimumVersion = new Version(1, 1, 5, 2)
             },
             new EmulatorPackageDefinition

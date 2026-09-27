@@ -95,10 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EmbeddedResource Include="..\..\..\Assets\NXE\EMU\XBOX\XENIA\xenia-canary-uwp\AppPackages\xenia-canary-uwp\xenia-canary-uwp_1.1.5.2_x64_Test\xenia-canary-uwp_1.1.5.2_x64.appx">
-      <Link>ApprovedPackages\XeniaCanary.appx</Link>
-      <LogicalName>NXE.EmulatorPackages.XeniaCanary.appx</LogicalName>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
