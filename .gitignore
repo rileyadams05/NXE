@@ -40,6 +40,7 @@ Dashboard/AssetTranslation/XUIHelper/
 Assets/Aurora/
 Assets/RetailNXE/
 Assets/freestyledash/
+Assets/NXE USB Prep/
 Release/*.appx
 Release/*.exe
 Release/*.png
