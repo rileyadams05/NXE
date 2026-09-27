@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channeldef>
+    <description>%EvResStr(IDS_CHANNELNAME_FRIENDS)%</description>
+
+    <type>local</type>
+    <spacing>920</spacing>
+    <condition>!EcoLiveTier(None)</condition>
+
+    <!-- Community channel is dynamic - uses Epix extensibility -->
+
+    <epixapp>
+        <id>FRIENDS_CHANNEL</id>
+        <path>livepack.xex</path>
+        <enabled>yes</enabled>
+    </epixapp>
+
+    <!-- Static slots -->
+
+    <slot>
+        <epixid>ADDFRIEND</epixid>
+        <reflection>no</reflection>
+        <boxstyle>transnograd</boxstyle>
+        <shallowimg>AddFriend.png</shallowimg>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvComResStr(IDS_ADD_FRIEND)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcAddFriend</cmd>
+        </onclick>
+        <tracking>None</tracking>
+    </slot>
+
+</channeldef>

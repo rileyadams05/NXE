@@ -1,0 +1,752 @@
+<Page
+    x:Class="NxeDashboard.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Black"
+    IsTabStop="True"
+    XYFocusKeyboardNavigation="Enabled">
+    <Page.Resources>
+        <!-- NXE uses its own quiet focus language instead of Windows' white focus boxes. -->
+        <SolidColorBrush x:Key="SystemControlFocusVisualPrimaryBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="SystemControlFocusVisualSecondaryBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="Transparent" />
+        <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="Transparent" />
+        <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="#26000000" />
+        <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="#1D000000" />
+
+        <Style x:Key="NxeButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="Root" Background="Transparent">
+                            <Border x:Name="InteractionWash" Background="#00000000" />
+                            <ContentPresenter x:Name="Presenter" Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Border x:Name="FocusMarker" Height="3" Margin="8,0"
+                                    VerticalAlignment="Bottom" Background="#FF8FCC3E" Opacity="0" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FocusMarker" Storyboard.TargetProperty="Opacity" To="0.65" Duration="0" />
+                                            <ColorAnimation Storyboard.TargetName="InteractionWash" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#1200FF00" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FocusMarker" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                            <DoubleAnimation Storyboard.TargetName="Presenter" Storyboard.TargetProperty="Opacity" To="0.72" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard><DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0.45" Duration="0" /></Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Unfocused" />
+                                    <VisualState x:Name="PointerFocused">
+                                        <Storyboard><DoubleAnimation Storyboard.TargetName="FocusMarker" Storyboard.TargetProperty="Opacity" To="0.65" Duration="0" /></Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard><DoubleAnimation Storyboard.TargetName="FocusMarker" Storyboard.TargetProperty="Opacity" To="1" Duration="0" /></Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource NxeButtonStyle}" />
+        <SolidColorBrush x:Key="PivotHeaderFocusBorderBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="PivotHeaderItemFocusBorderBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="PivotHeaderItemDividerBrush" Color="Transparent" />
+        <Thickness x:Key="PivotHeaderItemFocusBorderThickness">0</Thickness>
+        <Style TargetType="Pivot">
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="FocusVisualPrimaryBrush" Value="Transparent" />
+            <Setter Property="FocusVisualSecondaryBrush" Value="Transparent" />
+            <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+            <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+            <Setter Property="IsTabStop" Value="False" />
+        </Style>
+        <Style TargetType="PivotItem">
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="FocusVisualPrimaryBrush" Value="Transparent" />
+            <Setter Property="FocusVisualSecondaryBrush" Value="Transparent" />
+            <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+            <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+            <Setter Property="IsTabStop" Value="False" />
+        </Style>
+        <Style TargetType="PivotHeaderItem">
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="FocusVisualPrimaryBrush" Value="Transparent" />
+            <Setter Property="FocusVisualSecondaryBrush" Value="Transparent" />
+            <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+            <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="12,8" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PivotHeaderItem">
+                        <Grid x:Name="Root" Background="Transparent">
+                            <ContentPresenter x:Name="Presenter"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Border x:Name="SelectionMarker" Height="3" Margin="10,0"
+                                    VerticalAlignment="Bottom" Background="#FF8FCC3E" Opacity="0" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="SelectionMarker"
+                                                             Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Unfocused" />
+                                    <VisualState x:Name="PointerFocused" />
+                                    <VisualState x:Name="Focused" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ToggleSwitch"><Setter Property="UseSystemFocusVisuals" Value="False" /></Style>
+        <Style x:Key="NxeTextBoxStyle" TargetType="TextBox">
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="Background" Value="#1D000000" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+        </Style>
+        <Style x:Key="NxePasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="Background" Value="#1D000000" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0,0,0,2" />
+        </Style>
+        <Style x:Key="NxeListViewItemStyle" TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="UseSystemFocusVisuals" Value="False" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Grid x:Name="Root" Background="Transparent">
+                            <Border x:Name="InteractionWash" Background="#00000000" />
+                            <Border x:Name="PositionMarker" Width="4" HorizontalAlignment="Left" Background="#FF8FCC3E" Opacity="0" />
+                            <ContentPresenter x:Name="Presenter" Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PositionMarker" Storyboard.TargetProperty="Opacity" To="0.65" Duration="0" />
+                                            <ColorAnimation Storyboard.TargetName="InteractionWash" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#1000FF00" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PositionMarker" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                            <DoubleAnimation Storyboard.TargetName="Presenter" Storyboard.TargetProperty="Opacity" To="0.75" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"><Storyboard><DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0.45" Duration="0" /></Storyboard></VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected"><Storyboard><DoubleAnimation Storyboard.TargetName="PositionMarker" Storyboard.TargetProperty="Opacity" To="1" Duration="0" /></Storyboard></VisualState>
+                                    <VisualState x:Name="SelectedUnfocused"><Storyboard><DoubleAnimation Storyboard.TargetName="PositionMarker" Storyboard.TargetProperty="Opacity" To="0.75" Duration="0" /></Storyboard></VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Unfocused" />
+                                    <VisualState x:Name="PointerFocused"><Storyboard><DoubleAnimation Storyboard.TargetName="PositionMarker" Storyboard.TargetProperty="Opacity" To="0.65" Duration="0" /></Storyboard></VisualState>
+                                    <VisualState x:Name="Focused"><Storyboard><DoubleAnimation Storyboard.TargetName="PositionMarker" Storyboard.TargetProperty="Opacity" To="1" Duration="0" /></Storyboard></VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid x:Name="Viewport">
+        <Image Source="ms-appx:///RetailNXE/extracted/controlp/defaultbackground.jpg"
+               Stretch="UniformToFill" />
+        <Grid Background="#16000000">
+            <Grid x:Name="LibraryPanel" Padding="58,34,58,38">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="LibraryFilter" Grid.Column="0" Width="230" Margin="0" Opacity="0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center" Padding="0"
+                              Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                              IsTabStop="True" UseSystemFocusVisuals="False"
+                              SelectionChanged="LibraryFilter_SelectionChanged"
+                              DropDownClosed="LibraryFilter_DropDownClosed">
+                        <ComboBox.Resources>
+                            <SolidColorBrush x:Key="ComboBoxBackgroundPointerOver" Color="Transparent" />
+                            <SolidColorBrush x:Key="ComboBoxBackgroundPressed" Color="Transparent" />
+                            <SolidColorBrush x:Key="ComboBoxButtonBackgroundPointerOver" Color="Transparent" />
+                            <SolidColorBrush x:Key="ComboBoxButtonBackgroundPressed" Color="Transparent" />
+                            <SolidColorBrush x:Key="ComboBoxBorderBrushPointerOver" Color="Transparent" />
+                            <SolidColorBrush x:Key="ComboBoxBorderBrushPressed" Color="Transparent" />
+                        </ComboBox.Resources>
+                        <ComboBoxItem Content="All Games" />
+                        <ComboBoxItem Content="Favorites" />
+                        <ComboBoxItem Content="Recently Played" />
+                        <ComboBoxItem Content="Xbox360" />
+                        <ComboBoxItem Content="PS2" />
+                        <ComboBoxItem Content="GameCube" />
+                        <ComboBoxItem Content="Wii" />
+                        <ComboBoxItem Content="PSP" />
+                        <ComboBoxItem Content="Dreamcast" />
+                        <ComboBoxItem Content="PS1" />
+                        <ComboBoxItem Content="Retro Systems" />
+                    </ComboBox>
+                    <Button x:Name="SettingsButton" Grid.Column="2" Width="54" Height="54" Visibility="Collapsed"
+                            Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Padding="0"
+                            ToolTipService.ToolTip="Settings" AutomationProperties.Name="Settings"
+                            Click="SettingsButton_Click" UseSystemFocusVisuals="False">
+                        <FontIcon Glyph="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="25" />
+                    </Button>
+                </Grid>
+
+                <TextBlock x:Name="StorageStatus" Grid.Row="1" Margin="0,18,0,10"
+                           Visibility="Collapsed" Text="" Foreground="#FFE8E8E8" FontSize="17" />
+
+                <Grid Grid.Row="2">
+                    <ListView x:Name="GameLibraryList" ItemsSource="{x:Bind Games}"
+                              Background="Transparent" IsItemClickEnabled="False"
+                              SelectionMode="Single" IsSwipeEnabled="False"
+                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              ScrollViewer.VerticalScrollMode="Disabled"
+                              UseSystemFocusVisuals="False" ShowsScrollingPlaceholders="True"
+                              SelectionChanged="GameLibraryList_SelectionChanged">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsStackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem" BasedOn="{StaticResource NxeListViewItemStyle}">
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Margin" Value="7,12" />
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                <Setter Property="UseSystemFocusVisuals" Value="False" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="218" Height="326">
+                                    <Border Background="#D020252A" BorderBrush="#99FFFFFF"
+                                            BorderThickness="2" CornerRadius="3">
+                                        <Grid>
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Image Source="ms-appx:///RetailNXE/PluginUI/ico_64x_controller.png"
+                                                       Width="64" Height="64" Stretch="Uniform" />
+                                                <TextBlock Text="NO COVER" Foreground="#99FFFFFF" FontSize="15"
+                                                           HorizontalAlignment="Center" Margin="0,8,0,0" />
+                                            </StackPanel>
+                                            <Image Source="{Binding CoverUri}" Stretch="UniformToFill" />
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <StackPanel x:Name="EmptyLibrary" Visibility="Collapsed"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+                        <TextBlock Text="No games found" Foreground="White" FontSize="34"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock x:Name="DriveSetupInstructions" Text="Game drives must be formatted as NTFS and have the required Xbox permissions applied before connecting to the console. See the README for setup instructions."
+                                   Foreground="#FF46515A" FontSize="18" FontWeight="SemiBold" TextWrapping="Wrap"
+                                   MaxWidth="720" TextAlignment="Center" Margin="0,6,0,0" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="8,12,8,0" MinHeight="75">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="SelectedInfo" Visibility="Collapsed">
+                        <TextBlock x:Name="SelectedTitle" Text="" Foreground="White"
+                                   FontSize="27" TextTrimming="CharacterEllipsis" />
+                        <TextBlock x:Name="SelectedSummary" Text=""
+                                   Foreground="#FFD0D0D0" FontSize="16" TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left" Margin="0,0,0,2">
+                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_a.svg" Width="32" Height="32"
+                               Stretch="Uniform" />
+                        <TextBlock Text="Launch" Foreground="#FFE4E4E4" FontSize="19" VerticalAlignment="Center" />
+                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_menu.svg" Width="32" Height="32"
+                               Stretch="Uniform" VerticalAlignment="Center" Margin="18,0,0,0" />
+                        <TextBlock Text="Details" Foreground="#FFE4E4E4" FontSize="17" VerticalAlignment="Center" />
+                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_lb.svg" Width="48" Height="32"
+                               Stretch="Uniform" VerticalAlignment="Center" Margin="18,0,0,0" />
+                        <TextBlock Text="+" Foreground="#FFE4E4E4" FontSize="18" VerticalAlignment="Center" />
+                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_y.svg" Width="32" Height="32"
+                               Stretch="Uniform" VerticalAlignment="Center" />
+                        <TextBlock Text="Filter" Foreground="#FFE4E4E4" FontSize="17" VerticalAlignment="Center" />
+                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_view.svg" Width="32" Height="32"
+                               Stretch="Uniform" VerticalAlignment="Center" Margin="18,0,0,0" />
+                        <TextBlock Text="Guide" Foreground="#FFE4E4E4" FontSize="17" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="SettingsPanel" Visibility="Collapsed" Background="#72000000" Padding="68,38,68,52">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="SettingsBackButton" Content="&#xE72B;" FontFamily="Segoe MDL2 Assets"
+                            Width="52" Height="52" Click="BackButton_Click"
+                            AutomationProperties.Name="Back to games" />
+                    <TextBlock Grid.Column="1" Text="SETTINGS" Foreground="White" FontSize="32"
+                               VerticalAlignment="Center" Margin="18,0,0,0" />
+                </Grid>
+                <Pivot x:Name="SettingsPivot" Grid.Row="1" Margin="0,18,0,0" Foreground="White"
+                       UseSystemFocusVisuals="False" FocusVisualPrimaryThickness="0" FocusVisualSecondaryThickness="0"
+                       IsTabStop="False">
+                    <PivotItem Header="EMULATORS" UseSystemFocusVisuals="False" FocusVisualPrimaryThickness="0" FocusVisualSecondaryThickness="0">
+                        <ScrollViewer x:Name="EmulatorsScrollViewer">
+                            <StackPanel x:Name="EmulatorList" Spacing="10" Padding="20,20,20,30" />
+                        </ScrollViewer>
+                    </PivotItem>
+                    <PivotItem Header="FTP" UseSystemFocusVisuals="False" FocusVisualPrimaryThickness="0" FocusVisualSecondaryThickness="0">
+                        <ScrollViewer x:Name="FtpScrollViewer" VerticalScrollBarVisibility="Auto">
+                            <StackPanel Padding="24,22,24,36" Spacing="18" MaxWidth="1160"
+                                        HorizontalAlignment="Left">
+                                <Grid Background="#CD232A2F" Padding="20" MinHeight="82">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="NXE FTP" FontSize="24" Foreground="White" />
+                                        <TextBlock Text="FTP port 2121 · Web management port 2123" FontSize="15"
+                                                   Foreground="#FFC3C9CD" />
+                                    </StackPanel>
+                                    <TextBlock x:Name="FtpStatus" Grid.Column="1" Text="Starting"
+                                               FontSize="19" VerticalAlignment="Center"
+                                               Foreground="#FFFFC04A" Margin="24,0,8,0" />
+                                </Grid>
+
+                                                                <!-- NORMAL FTP INFO (Visible by default when Guide is closed) -->
+                                <StackPanel x:Name="FtpNormalContent" Spacing="14" Margin="10,8,0,0" MaxWidth="850">
+                                    <TextBlock Text="PHONE OR PC CONNECTION" FontSize="30" FontWeight="SemiBold" />
+                                    <TextBlock Text="Open the NXE FTP page on Vortex Prime, sign in with Google, and enter the console IP shown below. Vortex Prime saves the console to your account so it can be restored on your phone or PC."
+                                               FontSize="18" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                    <TextBlock x:Name="FtpWebsiteStatus" Text="Connecting to Vortex Prime control."
+                                               FontSize="17" Foreground="#FFBFC7BC" TextWrapping="Wrap"
+                                               Margin="0,10,0,0" />
+                                    <TextBlock Text="Console IP" FontSize="17" Foreground="#FFBFC7BC" Margin="0,8,0,0" />
+                                    <TextBlock x:Name="FtpConsoleIp" Text="Detecting." FontSize="31"
+                                               FontWeight="SemiBold" Foreground="#FFD4ED9A" />
+                                    <TextBlock x:Name="FtpControlHint"
+                                               Text="Enter this IP once on Vortex Prime. If it changes later, use Change IP on the website and enter the new address shown here."
+                                               FontSize="16" Foreground="#FFBFC7BC" TextWrapping="Wrap" Margin="0,10,0,0" />
+
+                                    <Button x:Name="ViewGuideButton" Content="View Guide"
+                                            Click="ViewGuideButton_Click" FontSize="19" FontWeight="SemiBold"
+                                            Padding="28,10" Margin="0,14,0,0" HorizontalAlignment="Left"
+                                            UseSystemFocusVisuals="False"
+                                            Style="{StaticResource NxeButtonStyle}" />
+                                </StackPanel>
+
+                                <!-- ON-DEMAND FTP GUIDE (Hidden by default, shown when View Guide is clicked) -->
+                                <StackPanel x:Name="FtpGuideContainer" Visibility="Collapsed" Spacing="18">
+                                    <!-- PAGE 1 -->
+                                    <StackPanel x:Name="FtpGuidePage1" Spacing="14" MaxWidth="1030" HorizontalAlignment="Left" Margin="10,8,0,0">
+                                        <TextBlock Text="Step 1: Phone or PC Connection" FontSize="30" FontWeight="SemiBold" />
+                                        <TextBlock Text="On your phone or PC, open the Vortex Prime NXE FTP page and sign in with your Google account."
+                                                   FontSize="18" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                        <Border Background="#A621282C" Padding="20" MaxWidth="1030" HorizontalAlignment="Left">
+                                            <StackPanel Spacing="12">
+                                                <TextBlock Text="OPEN VORTEX PRIME" FontSize="23" FontWeight="SemiBold" />
+                                                <TextBlock Text="On your phone or PC, search for Vortex Prime EMU. Open the first result only when it matches the official Vortex Prime result shown below."
+                                                           FontSize="17" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                                <Image Source="Assets/Vortex Prime emu search.png" Stretch="Uniform"
+                                                       MaxWidth="900" HorizontalAlignment="Left"
+                                                       AutomationProperties.Name="Official Vortex Prime EMU Google search result" />
+                                                <TextBlock Text="Then open Projects, choose NXE, and select FTP."
+                                                           FontSize="16" Foreground="#FFBFC7BC" TextWrapping="Wrap" />
+                                            </StackPanel>
+                                        </Border>
+                                        <Button x:Name="FtpGuideNext1" Content="Next"
+                                                Click="FtpGuideNext_Click" FontSize="18"
+                                                Padding="28,10" HorizontalAlignment="Left"
+                                                UseSystemFocusVisuals="False"
+                                                Style="{StaticResource NxeButtonStyle}" />
+                                    </StackPanel>
+
+                                    <!-- PAGE 2 -->
+                                    <StackPanel x:Name="FtpGuidePage2" Visibility="Collapsed" Spacing="18" MaxWidth="1030" HorizontalAlignment="Left" Margin="10,8,0,0">
+                                        <TextBlock Text="Step 2: Open the NXE FTP page" FontSize="30" FontWeight="SemiBold" />
+                                        <TextBlock Text="On the Vortex Prime Projects page, find NXE and select FTP." FontSize="18" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                        <Image Source="Assets/Guide_FTP.png" Stretch="Uniform" MaxWidth="900" HorizontalAlignment="Left" />
+                                        <Button x:Name="FtpGuideNext2" Content="Next" Click="FtpGuideNext_Click" FontSize="18" Padding="28,10" HorizontalAlignment="Left" Style="{StaticResource NxeButtonStyle}" />
+                                    </StackPanel>
+
+                                    <!-- PAGE 3 -->
+                                    <StackPanel x:Name="FtpGuidePage3" Visibility="Collapsed" Spacing="18" MaxWidth="1030" HorizontalAlignment="Left" Margin="10,8,0,0">
+                                        <TextBlock Text="Step 3: Pair your NXE console" FontSize="30" FontWeight="SemiBold" />
+                                        <TextBlock Text="Enter the Console IP shown in NXE Settings → FTP and select Connect. Vortex Prime saves the console under your signed-in Google account so the same IP can be restored on another phone or PC." FontSize="18" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                        <Image Source="Assets/Guide_Pairing.png" Stretch="Uniform" MaxWidth="900" HorizontalAlignment="Left" />
+                                        <TextBlock Text="If the console cannot be reached, compare every digit with the address shown on this screen. If the Xbox address changed, use Change IP on the website and save the new address." FontSize="16" Foreground="#FFBFC7BC" TextWrapping="Wrap" />
+                                        <Button x:Name="FtpGuideNext3" Content="Next" Click="FtpGuideNext_Click" FontSize="18" Padding="28,10" HorizontalAlignment="Left" Style="{StaticResource NxeButtonStyle}" />
+                                    </StackPanel>
+
+                                    <!-- PAGE 4 -->
+                                    <StackPanel x:Name="FtpGuidePage4" Visibility="Collapsed" Spacing="18" MaxWidth="1030" HorizontalAlignment="Left" Margin="10,8,0,0">
+                                        <TextBlock Text="Step 4: Connection Successful" FontSize="30" FontWeight="SemiBold" />
+                                        <TextBlock Text="When pairing succeeds, Vortex Prime will display 'Connection successful'. Press the Continue button on the website to open the FTP file manager." FontSize="18" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                        <Border Height="200" Width="900" HorizontalAlignment="Left" Background="#20000000" BorderBrush="#40FFFFFF" BorderThickness="2" CornerRadius="4" Padding="24">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="12">
+                                                <TextBlock Text="&#xE73E;" FontFamily="Segoe MDL2 Assets" FontSize="44" Foreground="#FF8FCC3E" HorizontalAlignment="Center" />
+                                                <TextBlock Text="Connection successful" FontSize="24" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" />
+                                                <TextBlock Text="Your NXE console has been paired successfully and is ready to use." Foreground="#FFD0D0D0" FontSize="16" HorizontalAlignment="Center" />
+                                            </StackPanel>
+                                        </Border>
+                                        <Button x:Name="FtpGuideNext4" Content="Next" Click="FtpGuideNext_Click" FontSize="18" Padding="28,10" HorizontalAlignment="Left" Style="{StaticResource NxeButtonStyle}" />
+                                    </StackPanel>
+
+                                    <!-- PAGE 5 (Final Step) -->
+                                    <StackPanel x:Name="FtpGuidePage5" Visibility="Collapsed" Spacing="18" MaxWidth="1030" HorizontalAlignment="Left" Margin="10,8,0,0">
+                                        <TextBlock Text="Step 5: FTP File System" FontSize="30" FontWeight="SemiBold" />
+                                        <TextBlock Text="Browse folders, upload files, download files, create folders, rename, delete, and use the server controls." FontSize="18" Foreground="#FFD0D0D0" TextWrapping="Wrap" />
+                                        <Border Height="200" Width="900" HorizontalAlignment="Left" Background="#20000000" BorderBrush="#40FFFFFF" BorderThickness="2" CornerRadius="4" Padding="24">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="12">
+                                                <TextBlock Text="&#xE8B7;" FontFamily="Segoe MDL2 Assets" FontSize="44" Foreground="#FF8FCC3E" HorizontalAlignment="Center" />
+                                                <TextBlock Text="File Manager &amp; Storage Controls" FontSize="24" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" />
+                                                <TextBlock Text="Manage your game files, BIOS files, themes, and backups securely from any browser on your home network." Foreground="#FFD0D0D0" FontSize="16" HorizontalAlignment="Center" />
+                                            </StackPanel>
+                                        </Border>
+                                        <Button x:Name="FtpGuideFinishButton" Content="Finish" Click="FtpGuideFinish_Click" FontSize="18" Padding="28,10" HorizontalAlignment="Left" Style="{StaticResource NxeButtonStyle}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </PivotItem>
+                </Pivot>
+            </Grid>
+
+            <Grid x:Name="FileManagerPanel" Visibility="Collapsed" Background="#72000000" Padding="68,38,68,52">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="FileManagerBackButton" Content="&#xE72B;" FontFamily="Segoe MDL2 Assets"
+                            Width="52" Height="52" Click="BackButton_Click"
+                            AutomationProperties.Name="Back to Guide" />
+                    <TextBlock Grid.Column="1" Text="FTP FILE MANAGER" Foreground="White" FontSize="32"
+                               VerticalAlignment="Center" Margin="18,0,0,0" />
+                    <TextBlock x:Name="FileManagerPath" Grid.Column="2" Text="/" Foreground="#FFD4ED9A"
+                               FontSize="21" VerticalAlignment="Center" Margin="18,0,0,0" />
+                </Grid>
+                <TextBlock x:Name="FileManagerStatus" Grid.Row="1" Text="Browse NXE storage"
+                           Margin="72,14,0,8" Foreground="#FFD8D8D8" FontSize="17" />
+                <ListView x:Name="FileManagerList" Grid.Row="2" Background="#44000000"
+                          SelectionMode="Single" IsItemClickEnabled="True" IsSwipeEnabled="False"
+                          ItemClick="FileManagerList_ItemClick" UseSystemFocusVisuals="False">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem" BasedOn="{StaticResource NxeListViewItemStyle}">
+                            <Setter Property="Padding" Value="14,10" />
+                            <Setter Property="Margin" Value="0,2" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="UseSystemFocusVisuals" Value="False" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="46" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <FontIcon Glyph="{Binding Glyph}" FontFamily="Segoe MDL2 Assets"
+                                          FontSize="22" Foreground="#FFD4ED9A" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="White"
+                                           FontSize="21" TextTrimming="CharacterEllipsis" />
+                                <TextBlock Grid.Column="2" Text="{Binding Details}" Foreground="#FFB8B8B8"
+                                           FontSize="16" VerticalAlignment="Center" Margin="18,0,0,0" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <TextBlock Grid.Row="3" Text="A  Open     B  Back     Y  Parent folder"
+                           Foreground="#FFE4E4E4" FontSize="17" Margin="6,18,0,0" />
+            </Grid>
+
+            <Grid x:Name="GameDetailsPanel" Visibility="Collapsed" Background="#B8000000" Padding="90,60">
+                <Border Background="#F022292D" BorderBrush="#FF8DBA34" BorderThickness="2" CornerRadius="6" Padding="28">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="310" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Width="270" Height="400" Background="#FF15191C" BorderBrush="#77FFFFFF" BorderThickness="2">
+                            <Grid>
+                                <TextBlock Text="NO COVER" Foreground="#88FFFFFF" FontSize="18"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Image x:Name="DetailsCover" Stretch="UniformToFill" />
+                            </Grid>
+                        </Border>
+                        <ScrollViewer Grid.Column="1" Margin="25,0,0,0">
+                            <StackPanel Spacing="10">
+                                <TextBlock x:Name="DetailsTitle" Foreground="White" FontSize="38" TextWrapping="Wrap" />
+                                <TextBlock x:Name="DetailsIdentity" Foreground="#FFD4ED9A" FontSize="19" />
+                                <TextBlock x:Name="DetailsAvailability" Foreground="#FFE7E7E7" FontSize="18" />
+                                <TextBlock x:Name="DetailsCredits" Foreground="#FFC8C8C8" FontSize="17" TextWrapping="Wrap" />
+                                <TextBlock x:Name="DetailsHistory" Foreground="#FFC8C8C8" FontSize="17" />
+                                <TextBlock x:Name="DetailsDescription" Foreground="White" FontSize="18"
+                                           TextWrapping="Wrap" Margin="0,12,0,0" />
+                            </StackPanel>
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal"
+                                    HorizontalAlignment="Right" Spacing="12" Margin="0,22,0,0">
+                            <Button x:Name="DetailsBackButton" Content="Back" Click="BackButton_Click"
+                                    MinWidth="120" />
+                            <Button x:Name="FavoriteButton" Content="Favorite" Click="FavoriteButton_Click"
+                                    MinWidth="150" />
+                            <Button x:Name="LaunchButton" Content="Launch" Click="LaunchButton_Click"
+                                    MinWidth="170" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Button x:Name="GuideButton" Width="68" Height="68" HorizontalAlignment="Right" Visibility="Collapsed"
+                    VerticalAlignment="Bottom" Margin="0,0,26,22" Background="Transparent"
+                    BorderThickness="0" Padding="0" Click="GuideButton_Click"
+                    AutomationProperties.Name="NXE Guide">
+                <Image Source="ms-appx:///RetailNXE/extracted/controlp/Legend_Menu.png" Stretch="Uniform" />
+            </Button>
+        </Grid>
+
+        <!-- Exact 852x480 Guide coordinate space translated from PluginUI GuideMain.xui and hudbkgnd.xui. -->
+        <Grid x:Name="GuideOverlay" Visibility="Collapsed" Background="#D4000000">
+            <Grid.Resources>
+                <Style x:Key="GuideRowButtonStyle" TargetType="Button">
+                    <Setter Property="Width" Value="315" />
+                    <Setter Property="Height" Value="27" />
+                    <Setter Property="MinWidth" Value="0" />
+                    <Setter Property="MinHeight" Value="0" />
+                    <Setter Property="Padding" Value="5,0" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Foreground" Value="#FFEBEBEB" />
+                    <Setter Property="FontFamily" Value="Segoe UI" />
+                    <Setter Property="FontSize" Value="17" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="UseSystemFocusVisuals" Value="False" />
+                    <Setter Property="XYFocusKeyboardNavigation" Value="Disabled" />
+                </Style>
+                <Style x:Key="GuideRowTextStyle" TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="#FFEBEBEB" />
+                    <Setter Property="FontFamily" Value="Segoe UI" />
+                    <Setter Property="FontSize" Value="17" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+                <Style x:Key="GuideBladeButtonStyle" TargetType="Button">
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="UseSystemFocusVisuals" Value="False" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  HorizontalContentAlignment="Stretch"
+                                                  VerticalContentAlignment="Stretch" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <Viewbox Stretch="Uniform">
+                <Canvas x:Name="PluginUiGuideScene" Width="852" Height="480">
+                    <TextBlock x:Name="GuideClock" Canvas.Left="588" Canvas.Top="40"
+                               Width="110" Height="26" Foreground="#E1EBEBEB" FontFamily="Segoe UI"
+                               FontSize="14" TextAlignment="Right" />
+                    <Grid x:Name="GuideCenterBlade" Canvas.Left="231" Canvas.Top="122"
+                          Width="386" Height="235" Canvas.ZIndex="10">
+                        <Image Source="ms-appx:///RetailNXE/PluginUI/Blade_dark.png"
+                               NineGrid="25,25,25,25" Stretch="Fill" />
+                        <Border Width="51" HorizontalAlignment="Left" Margin="2,2,0,3"
+                                Background="#38101A23" />
+                        <TextBlock x:Name="GuideActiveBladeLabel" Text="NXE Guide" Width="205" Height="25"
+                                   Margin="-75,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Foreground="#FFD6D6D6" FontFamily="Segoe UI" FontSize="15"
+                                   TextAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform><RotateTransform Angle="-90" /></TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
+
+                    <Canvas x:Name="GuidePageHost" Canvas.Left="282" Canvas.Top="132"
+                            Width="315" Height="200" Canvas.ZIndex="20">
+                        <Border x:Name="GuideCommandHighlight" Canvas.Left="-2" Canvas.Top="-2"
+                                Width="319" Height="32" CornerRadius="4"
+                                BorderThickness="1" BorderBrush="#FFB8E530" IsHitTestVisible="False">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#E6A3DA16" Offset="0" />
+                                    <GradientStop Color="#E65B9C00" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.RenderTransform><TranslateTransform x:Name="GuideHighlightTransform" /></Border.RenderTransform>
+                        </Border>
+
+                        <StackPanel x:Name="GuideGamesRows" Width="315" Visibility="Collapsed" />
+
+                        <StackPanel x:Name="GuideHomeRows" Width="315">
+                            <Button x:Name="GuideReturnButton" Style="{StaticResource GuideRowButtonStyle}" GotFocus="GuideCommand_GotFocus" Click="GuideCommand_Click"><TextBlock Text="Home" Style="{StaticResource GuideRowTextStyle}" /></Button>
+                            <Button x:Name="GuideFavoritesButton" Style="{StaticResource GuideRowButtonStyle}" GotFocus="GuideCommand_GotFocus" Click="GuideCommand_Click"><TextBlock Text="Favorite Games" Style="{StaticResource GuideRowTextStyle}" /></Button>
+                            <Button x:Name="GuideRecentButton" Style="{StaticResource GuideRowButtonStyle}" GotFocus="GuideCommand_GotFocus" Click="GuideCommand_Click"><TextBlock Text="Recently Played" Style="{StaticResource GuideRowTextStyle}" /></Button>
+                            <Button x:Name="GuideFtpButton" Style="{StaticResource GuideRowButtonStyle}" GotFocus="GuideCommand_GotFocus" Click="GuideCommand_Click"><TextBlock Text="FTP File Manager" Style="{StaticResource GuideRowTextStyle}" /></Button>
+                            <Button x:Name="GuideSettingsButton" Style="{StaticResource GuideRowButtonStyle}" GotFocus="GuideCommand_GotFocus" Click="GuideCommand_Click"><TextBlock Text="Settings" Style="{StaticResource GuideRowTextStyle}" /></Button>
+                            <Border Height="12" Background="Transparent" IsHitTestVisible="False" />
+                            <Button x:Name="GuideQuitAppButton" Style="{StaticResource GuideRowButtonStyle}" GotFocus="GuideCommand_GotFocus" Click="GuideCommand_Click"><TextBlock Text="Quit App" Style="{StaticResource GuideRowTextStyle}" /></Button>
+                        </StackPanel>
+
+                        <StackPanel x:Name="GuideFavoritesRows" Width="315" Visibility="Collapsed" />
+
+                    </Canvas>
+
+                    <Border x:Name="GuideNotice" Canvas.Left="321" Canvas.Top="375" Width="210" Height="28"
+                            Canvas.ZIndex="30" Background="#D924292D" BorderBrush="#8081878D"
+                            BorderThickness="1" CornerRadius="3" Opacity="0" IsHitTestVisible="False">
+                        <TextBlock x:Name="GuideNoticeText" Text="Not implemented" Foreground="#FFEBEBEB"
+                                   FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+
+                    <Border x:Name="GuideQuitConfirmPanel" Canvas.Left="255" Canvas.Top="82" Width="340" Height="205"
+                            Canvas.ZIndex="40" Background="#F022292D" BorderBrush="#FF8DBA34"
+                            BorderThickness="2" CornerRadius="5" Padding="22" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock Text="Quit NXE?" Foreground="White" FontSize="27" HorizontalAlignment="Center" />
+                            <TextBlock Text="Exit the NXE application and return to Developer Mode?"
+                                       Foreground="#FFD8D8D8" FontSize="15" TextWrapping="Wrap"
+                                       TextAlignment="Center" Margin="0,12,0,18" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="14">
+                                <Button x:Name="GuideQuitYesButton" Content="Yes" MinWidth="110"
+                                        Click="GuideQuitConfirm_Click" />
+                                <Button x:Name="GuideQuitNoButton" Content="No" MinWidth="110"
+                                        Click="GuideQuitConfirm_Click" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                        <StackPanel Canvas.Left="144" Canvas.Top="415" Height="24" Orientation="Horizontal" Spacing="20">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <Grid Width="22" Height="22" Background="Transparent">
+                                    <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_a.svg"
+                                           Width="22" Height="22" Stretch="Uniform" />
+                                    <TextBlock Text="A" Foreground="#FFA4E19C" FontFamily="Arial" FontSize="11"
+                                               FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Margin="0,1,0,0" IsHitTestVisible="False" />
+                                </Grid>
+                                <TextBlock Text="Select" Foreground="#FFEBEBEB" FontSize="14" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <Grid Width="22" Height="22" Background="Transparent">
+                                    <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_b.svg"
+                                           Width="22" Height="22" Stretch="Uniform" />
+                                    <TextBlock Text="B" Foreground="#FFE19C9C" FontFamily="Arial" FontSize="11"
+                                               FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Margin="0,1,0,0" IsHitTestVisible="False" />
+                                </Grid>
+                                <TextBlock Text="Back" Foreground="#FFEBEBEB" FontSize="14" VerticalAlignment="Center" />
+                            </StackPanel>
+                    </StackPanel>
+                </Canvas>
+            </Viewbox>
+        </Grid>
+        <MediaElement x:Name="GuideOpenSound" AutoPlay="False" Volume="0.8"
+                      Source="ms-appx:///RetailNXE/PluginUI/HUD_open.xma" />
+        <MediaElement x:Name="GuideCloseSound" AutoPlay="False" Volume="0.8"
+                      Source="ms-appx:///RetailNXE/PluginUI/HUD_close.xma" />
+        <MediaElement x:Name="GuideSwitchSound" AutoPlay="False" Volume="0.65"
+                      Source="ms-appx:///RetailNXE/PluginUI/tab_Switch.xma" />
+        <Grid x:Name="StartupGate" Background="#FF050708" Canvas.ZIndex="1000">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="520" Spacing="18">
+                <Image Source="ms-appx:///RetailNXE/Startup/NXE.png" Width="520" Height="292"
+                       Stretch="Uniform" />
+                <TextBlock x:Name="StartupStatus" Text="Checking NXE…" Foreground="White"
+                           FontSize="22" HorizontalAlignment="Center" />
+                <ProgressBar x:Name="StartupProgress" Minimum="0" Maximum="100" Value="0"
+                             Height="8" Foreground="#FF8FCC3E" Background="#FF20272A"
+                             ValueChanged="StartupProgress_ValueChanged" />
+                <TextBlock x:Name="StartupPercent" Text="0%" Foreground="White" FontSize="18"
+                           HorizontalAlignment="Center" />
+                <TextBlock Text="PLEASE WAIT" Foreground="#FFB7C0C4" FontSize="14"
+                           HorizontalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+
+

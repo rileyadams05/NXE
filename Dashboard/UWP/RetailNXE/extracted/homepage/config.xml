@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <hptimetable>
+        <maxcount>32</maxcount>
+        <entry>EtHPBegUpd</entry>
+        <entry>EtHPManifest</entry>
+        <entry>EtHPDownShallowP1</entry>
+        <entry>EtHPDownShallowP2</entry>
+        <entry>EtHPInitWebRep</entry>
+        <entry>EtHPDownDeepP1</entry>
+        <entry>EtHPDownDeepP2</entry>
+        <entry>EtHPFinUpd</entry>
+        <entry>EtHPDownFuture</entry>
+    </hptimetable>
+
+    <throttler>
+        <kbps>0</kbps>
+        <uncachedonly>yes</uncachedonly>
+    </throttler>
+
+    <tracer>
+       <ddqtracelevel>1</ddqtracelevel>
+       <epixtracelevel>1</epixtracelevel>
+    </tracer>
+
+    <nourlcache>0</nourlcache>
+</config>

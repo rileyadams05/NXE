@@ -1,0 +1,1040 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1120.000000</Width>
+<Height>770.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>Scene_Main</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+<Position>-0.296296,0.000000,0.000000</Position>
+<ClassOverride>NowPlayingScene</ClassOverride>
+<Visual>BackgroundPanel</Visual>
+<DefaultFocus>sceneControlsContainer\sceneTransportControlsContainer\btnPlayPause</DefaultFocus>
+<TransFrom>FadeOut</TransFrom>
+<TransTo>FadeIn</TransTo>
+<TransBackFrom>FadeOut</TransBackFrom>
+<TransBackTo>FadeIn</TransBackTo>
+</Properties>
+<XuiFigure>
+<Properties>
+<Id>BlackBG</Id>
+<Width>400.000000</Width>
+<Height>278.000000</Height>
+<Position>20.230965,140.984528,0.000000</Position>
+<Scale>1.000000,1.140000,1.000000</Scale>
+<Fill>
+<Properties>
+<FillColor>0xff0f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,435.000000,0.000000,0,435.000000,0.000000,435.000000,0.000000,435.000000,234.000000,0,435.000000,234.000000,435.000000,234.000000,0.000000,234.000000,0,0.000000,234.000000,0.000000,234.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiControl>
+<Properties>
+<Id>btnVisualizer</Id>
+<Width>398.000000</Width>
+<Height>230.000000</Height>
+<Position>21.500000,198.082550,0.000000</Position>
+<Scale>1.000000,1.140000,1.000000</Scale>
+<Opacity>0.000000</Opacity>
+<ClassOverride>VisualizerButton</ClassOverride>
+<Visual>VisualizerVisual</Visual>
+<Enabled>false</Enabled>
+</Properties>
+</XuiControl>
+<XuiFigure>
+<Properties>
+<Id>fig2</Id>
+<Width>400.000000</Width>
+<Height>158.000000</Height>
+<Position>20.228508,125.484512,0.000000</Position>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<Gradient>
+<Properties>
+<NumStops>3</NumStops>
+<StopColor index="0">0x000f0f0f</StopColor>
+<StopColor index="1">0xff0f0f0f</StopColor>
+<StopColor index="2">0xff0f0f0f</StopColor>
+<StopPos index="0">0.125490</StopPos>
+<StopPos index="1">0.388235</StopPos>
+<StopPos index="2">0.984314</StopPos>
+</Properties>
+</Gradient>
+<Scale>0.500000,1.000000,1.000000</Scale>
+<Rotation>90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>8,8.242963,0.000000,8.242963,0.000000,392.541382,0.000000,0,392.541382,0.000000,397.851807,0.000000,400.000000,2.118470,0,400.000000,6.452852,400.000000,6.452852,400.000000,150.151917,0,400.000000,150.151917,400.000000,154.486282,395.695038,158.000000,0,390.384613,158.000000,390.384613,158.000000,9.615385,158.000000,0,9.615385,158.000000,4.304960,158.000000,0.000000,154.486282,0,0.000000,150.151917,0.000000,150.151917,0.000000,6.762903,0,0.000000,6.762903,0.000000,2.428520,2.932538,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiButton>
+<Properties>
+<Id>legend_y</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>165.000000,1089.800049,0.000000</Position>
+<Visual>legend_Y</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Full Screen Visualization</Text>
+<PressKey>22531</PressKey>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>legend_x</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>146.000000,1117.800049,0.000000</Position>
+<Visual>legend_X</Visual>
+<Enabled>false</Enabled>
+<UnfocusedInput>true</UnfocusedInput>
+<PressKey>22530</PressKey>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>legend_a</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>573.000000,1117.800049,0.000000</Position>
+<Visual>legend_A</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Select</Text>
+</Properties>
+</XuiButton>
+<XuiBackButton>
+<Properties>
+<Id>legend_b</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>555.000000,1089.800049,0.000000</Position>
+<Visual>legend_B</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Back</Text>
+<PressKey>22593</PressKey>
+</Properties>
+</XuiBackButton>
+<XuiControl>
+<Properties>
+<Id>graphic_meta</Id>
+<Width>420.000000</Width>
+<Height>451.000000</Height>
+<Position>10.030968,20.188221,0.000000</Position>
+<Visual>Metapane</Visual>
+</Properties>
+</XuiControl>
+<XuiList>
+<Properties>
+<Id>listSongs</Id>
+<Width>420.000000</Width>
+<Height>450.000000</Height>
+<Position>445.030945,14.000000,0.000000</Position>
+<ClassOverride>NowPlayingList</ClassOverride>
+<Visual>List_3rdList</Visual>
+<NavLeft>sceneControlsContainer</NavLeft>
+<Wrap>true</Wrap>
+</Properties>
+</XuiList>
+<XuiLabel>
+<Properties>
+<Id>labelHeader</Id>
+<Width>855.000000</Width>
+<Height>47.000000</Height>
+<Position>156.000000,-268.800018,0.000000</Position>
+<Visual>Label_Head</Visual>
+<Text>Now Playing</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labelSongTitle</Id>
+<Width>389.000000</Width>
+<Height>35.000000</Height>
+<Position>27.253197,158.410431,0.000000</Position>
+<Visual>Label_MetaHead_1line_white</Visual>
+<Text>&lt;Song Name&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labelAlbumName</Id>
+<Width>335.000000</Width>
+<Height>35.000000</Height>
+<Position>220.000000,784.611023,0.000000</Position>
+<Show>false</Show>
+<Visual>Label_Body_1line</Visual>
+<Text>&lt;Album Name&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labelArtistName</Id>
+<Width>384.000000</Width>
+<Height>35.000000</Height>
+<Position>27.142082,130.984421,0.000000</Position>
+<Visual>Label_Sub_white_music</Visual>
+<Text>&lt;Artist Name&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labelSongCount</Id>
+<Width>245.000000</Width>
+<Height>47.000000</Height>
+<Position>551.000000,435.000000,0.000000</Position>
+<Visual>Label_SubRight</Visual>
+</Properties>
+</XuiLabel>
+<XuiGroup>
+<Properties>
+<Id>bgBox</Id>
+<Width>69.999992</Width>
+<Height>69.995880</Height>
+<Position>157.703735,787.740662,0.000000</Position>
+<Show>false</Show>
+</Properties>
+<XuiFigure>
+<Properties>
+<Width>70.000000</Width>
+<Height>3.000000</Height>
+<Fill>
+<Properties>
+<FillColor>0x640f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>70.000000</Width>
+<Height>3.000000</Height>
+<Position>0.000000,66.995888,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x5a0f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>3.000000</Width>
+<Height>64.000000</Height>
+<Position>0.000000,3.000000,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x410f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>3.000000</Width>
+<Height>64.000000</Height>
+<Position>67.000000,3.000000,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x410f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiGroup>
+<XuiImage>
+<Properties>
+<Id>imageAlbumArt</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>160.481476,785.592529,0.000000</Position>
+<Show>false</Show>
+<ImagePath>ico_96x_Music.png</ImagePath>
+</Properties>
+</XuiImage>
+<XuiFigure>
+<Properties>
+<Id>middle</Id>
+<Width>320.000000</Width>
+<Height>57.000000</Height>
+<Position>61.438362,407.484528,0.000000</Position>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<Gradient>
+<Properties>
+<NumStops>3</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0xff0f0f0f</StopColor>
+<StopColor index="2">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.160784</StopPos>
+<StopPos index="2">0.380392</StopPos>
+</Properties>
+</Gradient>
+<Translation>0.000000,-0.600000,0.000000</Translation>
+<Rotation>90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,276.000000,0.000000,0,276.000000,0.000000,276.000000,0.000000,276.000000,57.000000,0,276.000000,57.000000,276.000000,57.000000,0.000000,57.000000,0,0.000000,57.000000,0.000000,57.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiGroup>
+<Properties>
+<Id>leftCorner</Id>
+<Width>84.416901</Width>
+<Height>90.334442</Height>
+<Position>103.460213,374.150024,0.000000</Position>
+<Scale>-1.000000,1.000000,1.000000</Scale>
+</Properties>
+<XuiFigure>
+<Properties>
+<Id>corner5</Id>
+<Width>41.500000</Width>
+<Height>90.334503</Height>
+<Position>84.416962,-0.058528,0.000000</Position>
+<Scale>-1.000000,1.000000,1.000000</Scale>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<Gradient>
+<Properties>
+<NumStops>3</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0xff0f0f0f</StopColor>
+<StopColor index="2">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.764706</StopPos>
+<StopPos index="2">0.964706</StopPos>
+</Properties>
+</Gradient>
+<Translation>0.520000,-0.100000,0.000000</Translation>
+<Scale>0.500000,1.000000,1.000000</Scale>
+<Rotation>90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>6,0.000000,0.000000,0.000000,0.000000,46.570313,0.000000,0,46.570313,0.000000,46.570313,0.000000,46.570313,90.334503,0,46.570313,90.334503,46.570313,90.334503,10.300681,90.334503,0,10.300681,90.334503,10.300681,90.334503,6.636967,91.063248,0,2.931309,88.049042,-0.251296,85.460297,0.000000,81.127823,0,0.000000,81.127823,0.000000,81.127823,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>38.000000</Width>
+<Height>23.000000</Height>
+<Position>5.135802,67.326324,0.000000</Position>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<Gradient>
+<Properties>
+<NumStops>2</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.439216</StopPos>
+</Properties>
+</Gradient>
+<Rotation>180.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,30.000000,0.000000,0,30.000000,0.000000,30.000000,0.000000,30.000000,35.000000,0,30.000000,35.000000,30.000000,35.000000,0.000000,35.000000,0,0.000000,35.000000,0.000000,35.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>32.000000</Width>
+<Height>35.000847</Height>
+<Position>10.906263,32.329651,0.000000</Position>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>2</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.952941</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.500000,-0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,91.000000,0.000000,0,91.000000,0.000000,91.000000,0.000000,91.000000,91.000000,0,91.000000,91.000000,91.000000,91.000000,0.000000,91.000000,0,0.000000,91.000000,0.000000,91.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiGroup>
+<XuiButton>
+<Properties>
+<Id>btnVisOnOff</Id>
+<Width>35.000000</Width>
+<Height>33.000000</Height>
+<Position>27.697639,429.151154,0.000000</Position>
+<Opacity>0.500000</Opacity>
+<Visual>BlankVisual</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<ImagePath>ico_32x_LB.png</ImagePath>
+<PressKey>22533</PressKey>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnVisCyclopsPrevious</Id>
+<Width>35.000000</Width>
+<Height>33.000000</Height>
+<Position>59.700966,429.151154,0.000000</Position>
+<Opacity>0.500000</Opacity>
+<Visual>BlankVisual</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<PressKey>22550</PressKey>
+</Properties>
+</XuiButton>
+<XuiScene>
+<Properties>
+<Id>sceneControlsContainer</Id>
+<Width>401.000000</Width>
+<Height>91.000000</Height>
+<Position>20.280968,25.484516,0.000000</Position>
+<ClassOverride>MusicTransportControlsScene</ClassOverride>
+<NavRight>listSongs</NavRight>
+</Properties>
+<XuiFigure>
+<Properties>
+<Width>399.544739</Width>
+<Height>106.247688</Height>
+<Position>0.171307,-14.505419,0.000000</Position>
+<Opacity>0.300000</Opacity>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillColor>0x7f0f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>8,0.000000,6.599998,0.000000,2.954926,2.954926,0.000000,0,6.599998,0.000000,6.599998,0.000000,353.399994,0.000000,0,353.399994,0.000000,357.045074,0.000000,360.000000,2.954926,0,360.000000,6.599998,360.000000,6.599998,360.000000,125.400002,0,360.000000,125.400002,360.000000,129.045074,357.045074,132.000000,0,353.399994,132.000000,353.399994,132.000000,6.599998,132.000000,0,6.599998,132.000000,2.954926,132.000000,0.000000,129.045074,0,0.000000,125.400002,0.000000,125.400002,0.000000,6.599998,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>382.598114</Width>
+<Height>45.000000</Height>
+<Position>9.000000,38.803757,0.000000</Position>
+<Opacity>0.300000</Opacity>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillColor>0x7f0f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>8,0.000000,4.500000,0.000000,2.014721,2.014722,0.000000,0,4.500000,0.000000,4.500000,0.000000,378.500000,0.000000,0,378.500000,0.000000,380.985291,0.000000,383.000000,2.014721,0,383.000000,4.500000,383.000000,4.500000,383.000000,40.500000,0,383.000000,40.500000,383.000000,42.985275,380.985291,45.000000,0,378.500000,45.000000,378.500000,45.000000,4.500000,45.000000,0,4.500000,45.000000,2.014722,45.000000,0.000000,42.985275,0,0.000000,40.500000,0.000000,40.500000,0.000000,4.500000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiButton>
+<Properties>
+<Id>btnRipOrEdit</Id>
+<Width>383.578400</Width>
+<Height>47.000000</Height>
+<Position>8.365574,36.000000,0.000000</Position>
+<BlendMode>1</BlendMode>
+<ClassOverride>NowPlayingRipOrEditButton</ClassOverride>
+<Visual>btn_3rdList</Visual>
+<Enabled>false</Enabled>
+<NavUp>sceneTransportControlsContainer</NavUp>
+<Text>&lt;Edit or Rip&gt; </Text>
+</Properties>
+</XuiButton>
+<XuiScene>
+<Properties>
+<Id>sceneTransportControlsContainer</Id>
+<Width>397.361115</Width>
+<Height>42.000000</Height>
+<Position>1.000000,-6.000000,0.000000</Position>
+<NavDown>btnRipOrEdit</NavDown>
+</Properties>
+<XuiButton>
+<Properties>
+<Id>btnVolume</Id>
+<Width>75.000000</Width>
+<Height>42.000000</Height>
+<Position>326.000214,-1.000000,0.000000</Position>
+<Scale>0.950000,0.950000,1.000000</Scale>
+<Visual>btn_MusicNav_Small</Visual>
+<NavLeft>btnPlaybackMode</NavLeft>
+<ImagePath>common://btn_32x_Volume.png</ImagePath>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnPlaybackMode</Id>
+<Width>75.000000</Width>
+<Height>42.000000</Height>
+<Position>261.075134,-1.000000,0.000000</Position>
+<Scale>0.950000,0.950000,1.000000</Scale>
+<ClassOverride>MusicPlaybackModeButton</ClassOverride>
+<Visual>btn_MusicNav_Small</Visual>
+<NavLeft>btnNext</NavLeft>
+<NavRight>btnVolume</NavRight>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnNext</Id>
+<Width>75.000000</Width>
+<Height>42.000000</Height>
+<Position>196.150101,-1.000000,0.000000</Position>
+<Scale>0.950000,0.950000,1.000000</Scale>
+<Visual>btn_MusicNav_Small</Visual>
+<NavLeft>btnStop</NavLeft>
+<NavRight>btnPlaybackMode</NavRight>
+<ImagePath>common://btn_32x_Next.png</ImagePath>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnStop</Id>
+<Width>75.000000</Width>
+<Height>42.000000</Height>
+<Position>132.225067,-1.000000,0.000000</Position>
+<Scale>0.950000,0.950000,1.000000</Scale>
+<Visual>btn_MusicNav_Small</Visual>
+<NavLeft>btnPrevious</NavLeft>
+<NavRight>btnNext</NavRight>
+<ImagePath>common://btn_32x_Stop.png</ImagePath>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnPrevious</Id>
+<Width>75.000000</Width>
+<Height>42.000000</Height>
+<Position>67.500031,-1.000000,0.000000</Position>
+<Scale>0.950000,0.950000,1.000000</Scale>
+<BlendMode>1</BlendMode>
+<Visual>btn_MusicNav_Small</Visual>
+<NavLeft>btnPlayPause</NavLeft>
+<NavRight>btnStop</NavRight>
+<ImagePath>common://btn_32x_Last.png</ImagePath>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnPlayPause</Id>
+<Width>75.000000</Width>
+<Height>42.000000</Height>
+<Position>2.000000,-1.000000,0.000000</Position>
+<Scale>0.950000,0.950000,1.000000</Scale>
+<BlendMode>1</BlendMode>
+<ClassOverride>MusicPlayPauseButton</ClassOverride>
+<Visual>btn_MusicNav_Small</Visual>
+<NavRight>btnPrevious</NavRight>
+<ImagePath>common://btn_32x_Play.png</ImagePath>
+</Properties>
+</XuiButton>
+</XuiScene>
+<XuiSlider>
+<Properties>
+<Id>sliderVolume</Id>
+<Width>383.000000</Width>
+<Height>31.000000</Height>
+<Position>7.222188,-4.444458,0.000000</Position>
+<Visual>Slider_Volume</Visual>
+<NavDown>btnRipOrEdit</NavDown>
+<AccelInc>1</AccelInc>
+<AccelTime>100</AccelTime>
+</Properties>
+</XuiSlider>
+<XuiImage>
+<Properties>
+<Id>imgVolume</Id>
+<Position>357.000000,-3.111111,0.000000</Position>
+<ImagePath>common://btn_32x_Volume.png</ImagePath>
+</Properties>
+</XuiImage>
+<XuiGroup>
+<Properties>
+<Width>77.893517</Width>
+<Height>68.980331</Height>
+<Position>-2.796598,26.596352,0.000000</Position>
+<Opacity>0.300000</Opacity>
+</Properties>
+<XuiFigure>
+<Properties>
+<Width>16.000000</Width>
+<Height>16.000000</Height>
+<Position>0.000001,0.000003,0.000000</Position>
+<Anchor>3</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.329412</StopPos>
+<StopPos index="1">0.486275</StopPos>
+<StopPos index="2">0.592157</StopPos>
+<StopPos index="3">0.729412</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.500000,-0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>7.594995</Width>
+<Height>36.980324</Height>
+<Position>9.526276,16.000002,0.000000</Position>
+<Anchor>11</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.003922</StopPos>
+<StopPos index="1">0.192157</StopPos>
+<StopPos index="2">0.274510</StopPos>
+<StopPos index="3">0.419608</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.500000,-0.500000,0.000000</Translation>
+<Rotation>180.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>374.344696</Width>
+<Height>7.280724</Height>
+<Position>16.000002,8.717731,0.000000</Position>
+<Anchor>7</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.054902</StopPos>
+<StopPos index="1">0.247059</StopPos>
+<StopPos index="2">0.321569</StopPos>
+<StopPos index="3">0.486275</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.320000,-0.500000,0.000000</Translation>
+<Rotation>90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>16.000000</Width>
+<Height>16.000000</Height>
+<Position>390.341431,0.000002,0.000000</Position>
+<Anchor>6</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.329412</StopPos>
+<StopPos index="1">0.486275</StopPos>
+<StopPos index="2">0.592157</StopPos>
+<StopPos index="3">0.729412</StopPos>
+</Properties>
+</Gradient>
+<Translation>0.500000,-0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>7.582214</Width>
+<Height>36.981300</Height>
+<Position>389.479797,15.999020,0.000000</Position>
+<Anchor>14</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.200000</StopPos>
+<StopPos index="2">0.282353</StopPos>
+<StopPos index="3">0.439216</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.460000,-0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>16.000000</Width>
+<Height>16.000000</Height>
+<Position>0.000001,52.980335,0.000000</Position>
+<Anchor>9</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.329412</StopPos>
+<StopPos index="1">0.486275</StopPos>
+<StopPos index="2">0.584314</StopPos>
+<StopPos index="3">0.729412</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.500000,0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>374.344696</Width>
+<Height>8.249641</Height>
+<Position>16.000002,51.844486,0.000000</Position>
+<Anchor>13</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0x05ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.031373</StopPos>
+<StopPos index="1">0.176471</StopPos>
+<StopPos index="2">0.274510</StopPos>
+<StopPos index="3">0.403922</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.440000,-0.500000,0.000000</Translation>
+<Rotation>-90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>16.000000</Width>
+<Height>16.000000</Height>
+<Position>390.341431,52.980335,0.000000</Position>
+<Anchor>12</Anchor>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<FillColor>0xffebebeb</FillColor>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>4</NumStops>
+<StopColor index="0">0x00ffffff</StopColor>
+<StopColor index="1">0x64ffffff</StopColor>
+<StopColor index="2">0x64ffffff</StopColor>
+<StopColor index="3">0x00ffffff</StopColor>
+<StopPos index="0">0.329412</StopPos>
+<StopPos index="1">0.474510</StopPos>
+<StopPos index="2">0.592157</StopPos>
+<StopPos index="3">0.729412</StopPos>
+</Properties>
+</Gradient>
+<Translation>0.500000,0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,12.000000,0.000000,0,12.000000,0.000000,12.000000,0.000000,12.000000,12.000000,0,12.000000,12.000000,12.000000,12.000000,0.000000,12.000000,0,0.000000,12.000000,0.000000,12.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiGroup>
+</XuiScene>
+<XuiImage>
+<Properties>
+<Id>XuiImage1</Id>
+<Position>86.030968,381.484528,0.000000</Position>
+</Properties>
+</XuiImage>
+<XuiLabel>
+<Properties>
+<Id>labelAsyncWorkText</Id>
+<Width>420.000000</Width>
+<Height>77.000000</Height>
+<Position>449.530945,182.984528,0.000000</Position>
+<Visual>XuiLabelCenterJustify</Visual>
+<Text>Building current playlist.</Text>
+</Properties>
+</XuiLabel>
+<XuiGroup>
+<Properties>
+<Id>leftCorner1</Id>
+<Width>84.416901</Width>
+<Height>90.334442</Height>
+<Position>336.613953,374.150024,0.000000</Position>
+</Properties>
+<XuiFigure>
+<Properties>
+<Id>corner5</Id>
+<Width>41.500000</Width>
+<Height>90.334503</Height>
+<Position>84.416962,0.000000,0.000000</Position>
+<Scale>-1.000000,1.000000,1.000000</Scale>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<Gradient>
+<Properties>
+<NumStops>3</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0xff0f0f0f</StopColor>
+<StopColor index="2">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.764706</StopPos>
+<StopPos index="2">0.964706</StopPos>
+</Properties>
+</Gradient>
+<Translation>0.520000,-0.100000,0.000000</Translation>
+<Scale>0.500000,1.000000,1.000000</Scale>
+<Rotation>90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>6,0.000000,0.000000,0.000000,0.000000,46.570313,0.000000,0,46.570313,0.000000,46.570313,0.000000,46.570313,90.334503,0,46.570313,90.334503,46.570313,90.334503,10.300681,90.334503,0,10.300681,90.334503,10.300681,90.334503,6.636967,91.063248,0,2.931309,88.049042,-0.251296,85.460297,0.000000,81.127823,0,0.000000,81.127823,0.000000,81.127823,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>38.000000</Width>
+<Height>23.000000</Height>
+<Position>5.135802,67.326324,0.000000</Position>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<Gradient>
+<Properties>
+<NumStops>2</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.439216</StopPos>
+</Properties>
+</Gradient>
+<Rotation>180.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,30.000000,0.000000,0,30.000000,0.000000,30.000000,0.000000,30.000000,35.000000,0,30.000000,35.000000,30.000000,35.000000,0.000000,35.000000,0,0.000000,35.000000,0.000000,35.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>32.000000</Width>
+<Height>35.000847</Height>
+<Position>11.081847,32.329651,0.000000</Position>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>2</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0x000f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.952941</StopPos>
+</Properties>
+</Gradient>
+<Translation>-0.500000,-0.500000,0.000000</Translation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,91.000000,0.000000,0,91.000000,0.000000,91.000000,0.000000,91.000000,91.000000,0,91.000000,91.000000,91.000000,91.000000,0.000000,91.000000,0,0.000000,91.000000,0.000000,91.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiGroup>
+<XuiLabel>
+<Properties>
+<Id>labelAsyncWorkAnimation</Id>
+<Width>96.000000</Width>
+<Height>96.000000</Height>
+<Position>611.530945,227.984528,0.000000</Position>
+<Visual>Loading_Large</Visual>
+</Properties>
+</XuiLabel>
+<XuiButton>
+<Properties>
+<Id>btnVisNext</Id>
+<Width>35.000000</Width>
+<Height>33.000000</Height>
+<Position>378.672913,429.151154,0.000000</Position>
+<Opacity>0.500000</Opacity>
+<Visual>BlankVisual</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<ImagePath>ico_32x_RB.png</ImagePath>
+<PressKey>22532</PressKey>
+</Properties>
+</XuiButton>
+<XuiButton>
+<Properties>
+<Id>btnVisCyclopsNext</Id>
+<Width>35.000000</Width>
+<Height>33.000000</Height>
+<Position>346.670959,429.151154,0.000000</Position>
+<Opacity>0.500000</Opacity>
+<Visual>BlankVisual</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<PressKey>22551</PressKey>
+</Properties>
+</XuiButton>
+<XuiProgressBar>
+<Properties>
+<Id>progressBar</Id>
+<Width>334.000000</Width>
+<Position>14.250969,198.484528,0.000000</Position>
+<Visual>prgbr_Nowplaying</Visual>
+<RangeMax>20000</RangeMax>
+<Value>19000</Value>
+</Properties>
+</XuiProgressBar>
+<XuiLabel>
+<Properties>
+<Id>labelElapsedTime</Id>
+<Width>76.000000</Width>
+<Position>344.030945,193.484528,0.000000</Position>
+<Visual>Label_Sub_white_music</Visual>
+<Text>00:00</Text>
+</Properties>
+</XuiLabel>
+<LegacyControl>
+<Properties>
+<Id>LegacyControl1</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+</LegacyControl>
+</XuiScene>
+</XuiCanvas>

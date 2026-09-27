@@ -1,0 +1,642 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1120.000000</Width>
+<Height>770.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>MiniGamercardScene</Id>
+<Width>320.000000</Width>
+<Height>100.000000</Height>
+<ClassOverride>MiniGamerCardScene</ClassOverride>
+</Properties>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter0</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>256.000000,22.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter1</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>186.000000,22.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>1</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter2</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>116.000000,22.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>2</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter3</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>46.000000,22.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>3</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter4</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>256.000000,92.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>4</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter5</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>186.000000,92.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>5</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter6</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>116.000000,92.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>6</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiImagePresenter>
+<Properties>
+<Id>XuiImagePresenter7</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>46.000000,92.000000,0.000000</Position>
+<SizeMode>16</SizeMode>
+<DataAssociation>7</DataAssociation>
+</Properties>
+</XuiImagePresenter>
+<XuiGroup>
+<Properties>
+<Id>OnlineStatusGroup</Id>
+<Width>118.000000</Width>
+<Height>76.000000</Height>
+<Position>135.000000,16.000000,0.000000</Position>
+<Show>false</Show>
+</Properties>
+<XuiTextPresenter>
+<Properties>
+<Id>Friends</Id>
+<Width>42.000000</Width>
+<Height>32.000000</Height>
+<Position>47.000000,37.000000,0.000000</Position>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0x800f0f0f</DropShadowColor>
+<PointSize>20.000000</PointSize>
+<TextStyle>529</TextStyle>
+<DataAssociation>2</DataAssociation>
+</Properties>
+</XuiTextPresenter>
+<XuiImage>
+<Properties>
+<Id>FriendImage</Id>
+<Width>37.000000</Width>
+<Height>37.000000</Height>
+<Position>86.000000,38.000000,0.000000</Position>
+<ImagePath>sharedres://ico_32x_Friend.png</ImagePath>
+</Properties>
+</XuiImage>
+<XuiTextPresenter>
+<Properties>
+<Id>Messages</Id>
+<Width>42.000000</Width>
+<Height>32.000000</Height>
+<Position>-32.000000,37.000000,0.000000</Position>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0x800f0f0f</DropShadowColor>
+<PointSize>20.000000</PointSize>
+<TextStyle>529</TextStyle>
+<DataAssociation>3</DataAssociation>
+</Properties>
+</XuiTextPresenter>
+<XuiImage>
+<Properties>
+<Id>MessagesImage</Id>
+<Width>37.000000</Width>
+<Height>37.000000</Height>
+<Position>11.000000,38.000000,0.000000</Position>
+<ImagePath>sharedres://ico_32x_Mail.png</ImagePath>
+</Properties>
+</XuiImage>
+</XuiGroup>
+<XuiGroup>
+<Properties>
+<Id>UserInfoGroup</Id>
+<Width>253.000000</Width>
+<Height>75.960434</Height>
+<Position>0.000004,16.000006,0.000000</Position>
+</Properties>
+<XuiImage>
+<Properties>
+<Id>GamerScoreIcon</Id>
+<Width>32.000000</Width>
+<Height>32.000000</Height>
+<Position>221.000000,36.999992,0.000000</Position>
+<Show>false</Show>
+<ImagePath>sharedres://GScore_white.png</ImagePath>
+</Properties>
+</XuiImage>
+<XuiTextPresenter>
+<Properties>
+<Id>Gamerscore</Id>
+<Width>221.000000</Width>
+<Height>40.000000</Height>
+<Position>0.000000,35.960442,0.000000</Position>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0x640f0f0f</DropShadowColor>
+<PointSize>20.000000</PointSize>
+<TextStyle>16913</TextStyle>
+<DataAssociation>1</DataAssociation>
+</Properties>
+</XuiTextPresenter>
+</XuiGroup>
+<XuiTextPresenter>
+<Properties>
+<Id>Gamertag</Id>
+<Width>250.000000</Width>
+<Height>37.000000</Height>
+<Position>0.000000,16.000000,0.000000</Position>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0x640f0f0f</DropShadowColor>
+<PointSize>22.000000</PointSize>
+<TextStyle>16913</TextStyle>
+</Properties>
+</XuiTextPresenter>
+<XuiFigure>
+<Properties>
+<Id>HostHilite0</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>256.000000,22.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite1</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>186.000000,22.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite2</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>116.000000,22.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite3</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>46.000000,22.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite4</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>256.000000,92.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite5</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>186.000000,92.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite6</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>116.000000,92.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>HostHilite7</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>46.000000,92.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>2.000000</StrokeWidth>
+<StrokeColor>0xffebeb7c</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>0</FillType>
+<FillColor>0xff646464</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,320.000000,0.000000,0,320.000000,0.000000,320.000000,0.000000,320.000000,100.000000,0,320.000000,100.000000,320.000000,100.000000,0.000000,100.000000,0,0.000000,100.000000,0.000000,100.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<Timelines>
+<NamedFrames>
+<NamedFrame>
+<Name>UserInfoShow</Name>
+<Time>0</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>Switch</Name>
+<Time>1</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>Loop</Name>
+<Time>658</Time>
+<Command>gotoandplay</Command>
+<CommandParams>Switch</CommandParams>
+</NamedFrame>
+<NamedFrame>
+<Name>Party</Name>
+<Time>659</Time>
+<Command>stop</Command>
+</NamedFrame>
+</NamedFrames>
+<Timeline>
+<Id>UserInfoGroup</Id>
+<TimelineProp>Opacity</TimelineProp>
+<TimelineProp>Show</TimelineProp>
+<KeyFrame>
+<Time>0</Time>
+<Interpolation>0</Interpolation>
+<Prop>1.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>1</Time>
+<Interpolation>0</Interpolation>
+<Prop>0.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>15</Time>
+<Interpolation>0</Interpolation>
+<Prop>1.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>314</Time>
+<Interpolation>0</Interpolation>
+<Prop>1.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>329</Time>
+<Interpolation>0</Interpolation>
+<Prop>0.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>343</Time>
+<Interpolation>0</Interpolation>
+<Prop>0.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>643</Time>
+<Interpolation>0</Interpolation>
+<Prop>0.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>658</Time>
+<Interpolation>0</Interpolation>
+<Prop>0.000000</Prop>
+<Prop>true</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>659</Time>
+<Interpolation>0</Interpolation>
+<Prop>0.000000</Prop>
+<Prop>false</Prop>
+</KeyFrame>
+</Timeline>
+<Timeline>
+<Id>OnlineStatusGroup</Id>
+<TimelineProp>Show</TimelineProp>
+<TimelineProp>Opacity</TimelineProp>
+<KeyFrame>
+<Time>0</Time>
+<Interpolation>0</Interpolation>
+<Prop>false</Prop>
+<Prop>1.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>1</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>15</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>314</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>329</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>343</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>1.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>643</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>1.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>658</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>659</Time>
+<Interpolation>0</Interpolation>
+<Prop>false</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+</Timeline>
+<Timeline>
+<Id>Gamertag</Id>
+<TimelineProp>Show</TimelineProp>
+<TimelineProp>Opacity</TimelineProp>
+<KeyFrame>
+<Time>0</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>1.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>658</Time>
+<Interpolation>0</Interpolation>
+<Prop>true</Prop>
+<Prop>1.000000</Prop>
+</KeyFrame>
+<KeyFrame>
+<Time>659</Time>
+<Interpolation>0</Interpolation>
+<Prop>false</Prop>
+<Prop>0.000000</Prop>
+</KeyFrame>
+</Timeline>
+</Timelines>
+</XuiScene>
+</XuiCanvas>

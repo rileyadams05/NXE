@@ -1,0 +1,16 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>640.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiLabel>
+<Properties>
+<Id>labelEqualizer</Id>
+<Width>74.000000</Width>
+<Height>47.000000</Height>
+<Position>0.000000,1.000000,0.000000</Position>
+<ClassOverride>MusicEqualizer</ClassOverride>
+<Visual>equalizer_small</Visual>
+</Properties>
+</XuiLabel>
+</XuiCanvas>

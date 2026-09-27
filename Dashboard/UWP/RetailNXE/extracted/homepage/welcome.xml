@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channeldef>
+    <condition>EcoShowWelcomeChannel()</condition>
+    <description>%EvResStr(IDS_CHANNELNAME_WELCOME)%</description>
+
+    <!-- Slots -->
+    <slot>
+	<name>Whats Hot</name>
+        <epixid>WHATS_HOT</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToWhatsNew</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+    <slot>
+	<name>Xbox Basics</name>
+        <epixid>XBOX_BASICS</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToXboxBasics</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+    <slot>
+	<name>NXE Video</name>
+        <epixid>NXE_VIDEO</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcPlayMigrationVideo</cmd>
+        </onclick>
+        <condition>EcoExperienceMode(Full)</condition>
+        <tracking>none</tracking>
+    </slot>
+    <slot>
+	<name>Hide Welcome Channel</name>
+        <epixid>HIDE_WELCOME_CHANNEL</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcHideWelcomeChannel</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+    
+    <!-- Epix objects -->
+    <epix>
+        <id>STORAGE_UPSELL</id>
+        <format>EpixScene</format>
+        <path>EsStorageUpsell</path>
+    </epix>
+    <epix>
+        <id>WHATS_HOT</id>
+        <format>EpixScene</format>
+        <path>EsWhatsHot</path>
+    </epix>
+    <epix>
+        <id>XBOX_BASICS</id>
+        <format>EpixScene</format>
+        <path>EsXboxBasics</path>
+    </epix>
+    <epix>
+        <id>NXE_VIDEO</id>
+        <format>EpixScene</format>
+        <path>EsNxeVideo</path>
+    </epix>
+    <epix>
+        <id>HIDE_WELCOME_CHANNEL</id>
+        <format>EpixScene</format>
+        <path>EsHideWelcome</path>
+    </epix>
+</channeldef>
+
+

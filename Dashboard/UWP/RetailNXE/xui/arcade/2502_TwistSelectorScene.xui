@@ -1,0 +1,485 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<DashScene>
+<Properties>
+<Id>Scene_Main</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+<Position>-1.000000,0.000000,0.000000</Position>
+<ClassOverride>Arcade::CTwistSelectorScene</ClassOverride>
+<Visual>BackgroundPanel</Visual>
+<DefaultFocus>Tab1</DefaultFocus>
+<TransFrom>FadeOut</TransFrom>
+<TransTo>FadeIn</TransTo>
+<TransBackFrom>FadeOut</TransBackFrom>
+<TransBackTo>FadeIn</TransBackTo>
+</Properties>
+<XuiNavButton>
+<Properties>
+<Id>btnY</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>52.193802,776.000061,0.000000</Position>
+<Show>false</Show>
+<Visual>legend_Y</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Play</Text>
+<PressKey>22531</PressKey>
+</Properties>
+</XuiNavButton>
+<XuiButton>
+<Properties>
+<Id>btnA</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>460.193787,804.000061,0.000000</Position>
+<Show>false</Show>
+<Visual>legend_A</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Select</Text>
+</Properties>
+</XuiButton>
+<XuiBackButton>
+<Properties>
+<Id>btnB</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>442.193787,776.000061,0.000000</Position>
+<Show>false</Show>
+<Visual>legend_B</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Back</Text>
+<PressKey>22593</PressKey>
+</Properties>
+</XuiBackButton>
+<XuiNavButton>
+<Properties>
+<Id>btnX</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>33.000000,803.000122,0.000000</Position>
+<Show>false</Show>
+<Visual>legend_X</Visual>
+<Enabled>false</Enabled>
+<UnfocusedInput>true</UnfocusedInput>
+<PressKey>22530</PressKey>
+</Properties>
+</XuiNavButton>
+<XuiLabel>
+<Properties>
+<Id>labTitle</Id>
+<Width>855.000000</Width>
+<Height>47.000000</Height>
+<Position>1.000000,-136.000000,0.000000</Position>
+<Show>false</Show>
+<Visual>Label_Head</Visual>
+<Text>My Games</Text>
+</Properties>
+</XuiLabel>
+<LegacyControl>
+<Properties>
+<Id>__Legacy__</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+<Show>false</Show>
+</Properties>
+</LegacyControl>
+<XuiLabel>
+<Properties>
+<Id>labError</Id>
+<Width>549.000000</Width>
+<Height>170.000000</Height>
+<Position>155.000000,175.000000,0.000000</Position>
+<Show>false</Show>
+<Visual>XuiLabelCenterJustify</Visual>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labEmpty</Id>
+<Width>549.000000</Width>
+<Height>170.000000</Height>
+<Position>155.000000,175.000000,0.000000</Position>
+<Show>false</Show>
+<Visual>XuiLabelCenterJustify</Visual>
+</Properties>
+</XuiLabel>
+<XuiControl>
+<Properties>
+<Id>ctlWait</Id>
+<Width>98.000000</Width>
+<Height>99.000000</Height>
+<Position>395.000000,210.000000,0.000000</Position>
+<Show>false</Show>
+<Visual>Loading_Large</Visual>
+</Properties>
+</XuiControl>
+<XuiScene>
+<Properties>
+<Id>Tab1</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+<ClassOverride>Arcade::CTitleSelectorScene</ClassOverride>
+<DefaultFocus>listTitles</DefaultFocus>
+</Properties>
+<XuiList>
+<Properties>
+<Id>listTitles</Id>
+<Width>550.000000</Width>
+<Height>466.000000</Height>
+<Position>11.000000,10.000000,0.000000</Position>
+<ClassOverride>Arcade::CTitleListCtrl</ClassOverride>
+<Visual>List_LibBrowse</Visual>
+<Wrap>true</Wrap>
+</Properties>
+</XuiList>
+<XuiScene>
+<Properties>
+<Id>metaPanelScene</Id>
+<Width>280.000000</Width>
+<Height>450.000000</Height>
+<Position>580.000000,17.000000,0.000000</Position>
+<ClassOverride>MetaPanelScene</ClassOverride>
+</Properties>
+</XuiScene>
+<XuiLabel>
+<Properties>
+<Id>lblTotals</Id>
+<Width>250.000000</Width>
+<Height>47.000000</Height>
+<Position>248.000000,445.000000,0.000000</Position>
+<Visual>Label_SubRight</Visual>
+<Text>2 of 12</Text>
+</Properties>
+</XuiLabel>
+<XuiScene>
+<Properties>
+<Id>scnTitle</Id>
+<Width>280.000000</Width>
+<Height>450.000000</Height>
+<Position>580.000000,17.000000,0.000000</Position>
+<ClassOverride>Arcade::CTitleScene</ClassOverride>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>scnAchievements</Id>
+<Width>280.000000</Width>
+<Height>450.000000</Height>
+<ImagePath>250x_metaAchievements.xui</ImagePath>
+</Properties>
+</XuiScene>
+<XuiScene>
+<Properties>
+<Id>grpClassicDescription</Id>
+<Width>280.000000</Width>
+<Height>450.000000</Height>
+<Show>false</Show>
+</Properties>
+<XuiLabel>
+<Properties>
+<Id>labDescription</Id>
+<Width>280.000000</Width>
+<Height>410.000000</Height>
+<Position>-2.000000,45.000000,0.000000</Position>
+<Text>&lt;game description&gt;
+</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labTitleDescription</Id>
+<Width>280.000000</Width>
+<Height>44.000000</Height>
+<Position>2.000000,3.000000,0.000000</Position>
+<Visual>Label_Body_1line</Visual>
+<Text>Description</Text>
+</Properties>
+</XuiLabel>
+<XuiFigure>
+<Properties>
+<Id>graphic</Id>
+<Width>280.000000</Width>
+<Height>37.000000</Height>
+<Position>0.000000,4.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>1.000000</StrokeWidth>
+<StrokeColor>0xffa0a0a0</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0x2d0f0f0f</FillColor>
+<Gradient>
+<Properties>
+<NumStops>11</NumStops>
+<StopColor index="0">0x320f0f0f</StopColor>
+<StopColor index="1">0x320f0f0f</StopColor>
+<StopColor index="2">0x32646464</StopColor>
+<StopColor index="3">0x32ebebeb</StopColor>
+<StopColor index="4">0x320f0f0f</StopColor>
+<StopColor index="5">0x32ebebeb</StopColor>
+<StopColor index="6">0x320f0f0f</StopColor>
+<StopColor index="7">0x320f0f0f</StopColor>
+<StopColor index="8">0x32ebebeb</StopColor>
+<StopColor index="9">0x320f0f0f</StopColor>
+<StopColor index="10">0x320f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.474510</StopPos>
+<StopPos index="2">0.611765</StopPos>
+<StopPos index="3">0.698039</StopPos>
+<StopPos index="4">0.721569</StopPos>
+<StopPos index="5">0.737255</StopPos>
+<StopPos index="6">0.780392</StopPos>
+<StopPos index="7">0.854902</StopPos>
+<StopPos index="8">0.925490</StopPos>
+<StopPos index="9">0.941176</StopPos>
+<StopPos index="10">1.000000</StopPos>
+</Properties>
+</Gradient>
+<Rotation>-5.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,401.000000,0.000000,0,401.000000,0.000000,401.000000,0.000000,401.000000,30.000000,0,401.000000,30.000000,401.000000,30.000000,0.000000,30.000000,0,0.000000,30.000000,0.000000,30.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiScene>
+<XuiLabel>
+<Properties>
+<Id>grfxBackground</Id>
+<Width>280.000000</Width>
+<Height>448.000000</Height>
+<Anchor>15</Anchor>
+</Properties>
+</XuiLabel>
+<XuiControl>
+<Properties>
+<Id>ctrlLoading</Id>
+<Width>100.000000</Width>
+<Height>98.000000</Height>
+<Position>80.000000,165.000000,0.000000</Position>
+<Visual>Loading_Large</Visual>
+</Properties>
+</XuiControl>
+</XuiScene>
+<XuiScene>
+<Properties>
+<Id>scnSimpleTitle</Id>
+<Width>280.000000</Width>
+<Height>450.000000</Height>
+<Position>580.000000,17.000000,0.000000</Position>
+</Properties>
+<XuiLabel>
+<Properties>
+<Id>topPanel</Id>
+<Width>280.000000</Width>
+<Height>443.000000</Height>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labGameTitle</Id>
+<Width>195.000000</Width>
+<Height>60.900002</Height>
+<Position>1500.000000,1500.000000,0.000000</Position>
+<Visual>Label_Body_V</Visual>
+<Text>&lt;game title&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiImage>
+<Properties>
+<Id>imgGame</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>1500.000000,1500.000000,0.000000</Position>
+</Properties>
+</XuiImage>
+<XuiGroup>
+<Properties>
+<Width>69.999992</Width>
+<Height>69.995895</Height>
+<Position>1500.000000,1500.000000,0.000000</Position>
+</Properties>
+<XuiFigure>
+<Properties>
+<Width>70.000000</Width>
+<Height>3.000000</Height>
+<Position>0.000000,0.000004,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x640f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>70.000000</Width>
+<Height>3.000000</Height>
+<Position>0.000000,66.995895,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x5a0f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>3.000000</Width>
+<Height>64.000000</Height>
+<Position>0.000000,3.000004,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x410f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>3.000000</Width>
+<Height>64.000000</Height>
+<Position>67.000000,3.000004,0.000000</Position>
+<Fill>
+<Properties>
+<FillColor>0x410f0f0f</FillColor>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,72.000000,0.000000,0,72.000000,0.000000,72.000000,0.000000,72.000000,4.000000,0,72.000000,4.000000,72.000000,4.000000,0.000000,4.000000,0,0.000000,4.000000,0.000000,4.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiGroup>
+<XuiLabel>
+<Properties>
+<Id>labDescription</Id>
+<Width>280.000000</Width>
+<Height>415.000000</Height>
+<Position>-2.000000,45.000000,0.000000</Position>
+<Text>&lt;game description&gt;
+</Text>
+</Properties>
+</XuiLabel>
+<XuiFigure>
+<Properties>
+<Id>graphic2</Id>
+<Width>280.000000</Width>
+<Height>37.000000</Height>
+<Position>1500.000000,1500.000000,0.000000</Position>
+<Show>false</Show>
+<Stroke>
+<Properties>
+<StrokeWidth>1.000000</StrokeWidth>
+<StrokeColor>0xffa0a0a0</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0x2d0f0f0f</FillColor>
+<Gradient>
+<Properties>
+<NumStops>11</NumStops>
+<StopColor index="0">0x320f0f0f</StopColor>
+<StopColor index="1">0x320f0f0f</StopColor>
+<StopColor index="2">0x32646464</StopColor>
+<StopColor index="3">0x32ebebeb</StopColor>
+<StopColor index="4">0x320f0f0f</StopColor>
+<StopColor index="5">0x32ebebeb</StopColor>
+<StopColor index="6">0x320f0f0f</StopColor>
+<StopColor index="7">0x320f0f0f</StopColor>
+<StopColor index="8">0x32ebebeb</StopColor>
+<StopColor index="9">0x320f0f0f</StopColor>
+<StopColor index="10">0x320f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.474510</StopPos>
+<StopPos index="2">0.611765</StopPos>
+<StopPos index="3">0.698039</StopPos>
+<StopPos index="4">0.721569</StopPos>
+<StopPos index="5">0.737255</StopPos>
+<StopPos index="6">0.780392</StopPos>
+<StopPos index="7">0.854902</StopPos>
+<StopPos index="8">0.925490</StopPos>
+<StopPos index="9">0.941176</StopPos>
+<StopPos index="10">1.000000</StopPos>
+</Properties>
+</Gradient>
+<Rotation>-5.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,401.000000,0.000000,0,401.000000,0.000000,401.000000,0.000000,401.000000,30.000000,0,401.000000,30.000000,401.000000,30.000000,0.000000,30.000000,0,0.000000,30.000000,0.000000,30.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiLabel>
+<Properties>
+<Id>labStaticDescription</Id>
+<Width>280.000000</Width>
+<Height>44.000000</Height>
+<Position>2.000000,3.000000,0.000000</Position>
+<Visual>Label_Body_1line</Visual>
+<Text>Description</Text>
+</Properties>
+</XuiLabel>
+<Timelines>
+<NamedFrames>
+<NamedFrame>
+<Name>EndNormal</Name>
+<Time>1</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>1to2</Name>
+<Time>2</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>End1to2</Name>
+<Time>30</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>2to1</Name>
+<Time>31</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>End2to1</Name>
+<Time>60</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>2to3</Name>
+<Time>61</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>End2to3</Name>
+<Time>90</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>3to2</Name>
+<Time>91</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>End3to2</Name>
+<Time>120</Time>
+<Command>stop</Command>
+</NamedFrame>
+</NamedFrames>
+</Timelines>
+</XuiScene>
+</XuiScene>
+</DashScene>
+</XuiCanvas>

@@ -1,0 +1,37 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1120.000000</Width>
+<Height>770.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>scene</Id>
+<Width>700.000000</Width>
+<Height>445.000000</Height>
+<ClassOverride>MediaPackage</ClassOverride>
+<DefaultFocus>legend_b</DefaultFocus>
+</Properties>
+<XuiControl>
+<Properties>
+<Id>ctlWait</Id>
+<Width>98.000000</Width>
+<Height>99.000000</Height>
+<Position>301.000031,173.000015,0.000000</Position>
+<Show>false</Show>
+<Visual>Loading_Large_noIntro</Visual>
+</Properties>
+</XuiControl>
+<XuiLabel>
+<Properties>
+<Id>labEmpty</Id>
+<Width>549.000000</Width>
+<Height>170.000000</Height>
+<Position>75.500008,137.500015,0.000000</Position>
+<Show>false</Show>
+<Visual>XuiLabelCenterJustify</Visual>
+<Text>Xbox LIVE is currently unavailable. Please check back later.
+</Text>
+</Properties>
+</XuiLabel>
+</XuiScene>
+</XuiCanvas>

@@ -1,0 +1,167 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1120.000000</Width>
+<Height>770.000000</Height>
+</Properties>
+<DashScene>
+<Properties>
+<Id>scCslSettings</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+<ClassOverride>dashPControlSelect</ClassOverride>
+<Visual>BackgroundPanel</Visual>
+<TransFrom>FadeOut</TransFrom>
+<TransTo>FadeIn</TransTo>
+<TransBackFrom>FadeOut</TransBackFrom>
+<TransBackTo>FadeIn</TransBackTo>
+<NavigationBreadcrumbs>btnConsole\0btnLive</NavigationBreadcrumbs>
+<DescriptionTexts>Determine Family Settings for your console. These settings affect everyone who uses your console. Manage access to the following features:
+
+" Games
+" Movies, TV shows, and videos
+" Xbox LIVE
+" Xbox LIVE membership creation\0Determine Family Settings for your child's Xbox LIVE membership. Manage access to the following online features:
+
+" Online friends
+" Communications
+" Gamer profiles
+" Online status
+" Online games
+" Member content
+" Downloadable content</DescriptionTexts>
+<MetapaneSceneOverrides>\0</MetapaneSceneOverrides>
+</Properties>
+<XuiNavButton>
+<Properties>
+<Id>btnConsole</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>10.000000,15.000000,0.000000</Position>
+<NavDown>btnLive</NavDown>
+<Text>Console Controls</Text>
+<PressPath>dashSysCslSetPControl.xur</PressPath>
+</Properties>
+</XuiNavButton>
+<XuiNavButton>
+<Properties>
+<Id>btnLive</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>10.000000,60.000000,0.000000</Position>
+<NavUp>btnConsole</NavUp>
+<Text>Xbox LIVE Controls</Text>
+</Properties>
+</XuiNavButton>
+<XuiNavButton>
+<Properties>
+<Id>legend_y</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>165.000000,1216.560059,0.000000</Position>
+<Visual>legend_Y</Visual>
+<Enabled>false</Enabled>
+<PressKey>22531</PressKey>
+</Properties>
+</XuiNavButton>
+<XuiNavButton>
+<Properties>
+<Id>legend_x</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>146.000000,1244.560059,0.000000</Position>
+<Visual>legend_X</Visual>
+<Enabled>false</Enabled>
+<PressKey>22530</PressKey>
+</Properties>
+</XuiNavButton>
+<XuiNavButton>
+<Properties>
+<Id>legend_a</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>573.000000,1244.560059,0.000000</Position>
+<Visual>legend_A</Visual>
+<Text>Select</Text>
+</Properties>
+</XuiNavButton>
+<XuiBackButton>
+<Properties>
+<Id>legend_b</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>555.000000,1216.560059,0.000000</Position>
+<Visual>legend_B</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Back</Text>
+<PressKey>22593</PressKey>
+</Properties>
+</XuiBackButton>
+<XuiScene>
+<Properties>
+<Id>metaPanelScene</Id>
+<Width>395.000000</Width>
+<Height>426.000000</Height>
+<Position>448.000000,15.000000,0.000000</Position>
+<ClassOverride>MetaPanelScene</ClassOverride>
+<Visual>metaScene_1line</Visual>
+</Properties>
+<Timelines>
+<NamedFrames>
+<NamedFrame>
+<Name>Normal</Name>
+<Time>0</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>EndNormal</Name>
+<Time>1</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>1to2</Name>
+<Time>2</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>End1to2</Name>
+<Time>30</Time>
+<Command>stop</Command>
+</NamedFrame>
+<NamedFrame>
+<Name>2to1</Name>
+<Time>31</Time>
+</NamedFrame>
+<NamedFrame>
+<Name>End2to1</Name>
+<Time>60</Time>
+<Command>stop</Command>
+</NamedFrame>
+</NamedFrames>
+</Timelines>
+</XuiScene>
+<XuiControl>
+<Properties>
+<Id>cntLoadingAnimation</Id>
+<Position>165.000000,210.000000,0.000000</Position>
+<Show>false</Show>
+<Visual>Loading_Large</Visual>
+</Properties>
+</XuiControl>
+<XuiLabel>
+<Properties>
+<Id>labHeader</Id>
+<Width>855.000000</Width>
+<Height>47.000000</Height>
+<Position>94.000000,-267.640015,0.000000</Position>
+<Show>false</Show>
+<Visual>Label_Head</Visual>
+<Text>Family Settings</Text>
+</Properties>
+</XuiLabel>
+<LegacyControl>
+<Properties>
+<Id>LegacyControl1</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+</LegacyControl>
+</DashScene>
+</XuiCanvas>

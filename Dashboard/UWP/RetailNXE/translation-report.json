@@ -1,0 +1,22 @@
+﻿{
+    "generatedUtc":  "2026-09-23T03:30:26.6507865Z",
+    "dashboardBuild":  9199,
+    "sourceXex":  "D:\\Projects\\NXE\\Assets\\RetailNXE\\9199\\Runtime\\dash.xex",
+    "sourceSha256":  "7DD4DD087E1FF8874951446F5870445DCAAAC383DDD49818F9AC84FCC2A61C48",
+    "sourceSize":  4845568,
+    "sharedResourceXzp":  "D:\\Projects\\NXE\\Assets\\RetailNXE\\9199\\Runtime\\shrdres.xzp",
+    "sharedResourceSha256":  "AAFAC0E200D580866779FBF635278D322D4436156350247A9DDC0162A86C62C2",
+    "unpackedXexSha256":  "81608B8853C3573C87A7FA8F4EEB69D4024A01D15712F686D4CA872CCB2FBB1E",
+    "sectionCount":  29,
+    "extractedFileCount":  4306,
+    "xurCount":  311,
+    "convertedXuiCount":  311,
+    "conversionFailureCount":  0,
+    "xuiHelperCommit":  "c0d083036c6b0e3cdec5a3df0abfca0e58973117",
+    "tools":  {
+                  "xexTool":  "D:\\Projects\\NXE\\Assets\\RetailNXE\\9199\\Tools\\XexTool6.3\\xextool.exe",
+                  "imageXex":  "D:\\Projects\\NXE\\Assets\\XBOX 360 SDK\\bin\\win32\\imagexex.exe",
+                  "xuiPkg":  "D:\\Projects\\NXE\\Assets\\XBOX 360 SDK\\bin\\win32\\xuipkg.exe",
+                  "xuiHelper":  "D:\\Projects\\NXE\\Tools\\ThirdParty\\XUIHelper\\XUIHelper.CLI\\bin\\Release\\net8.0\\XUIHelper.CLI.exe"
+              }
+}

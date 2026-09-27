@@ -1,0 +1,157 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>XuiScene1</Id>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+<Position>-1.000000,0.000000,0.000000</Position>
+<ClassOverride>CCreateProfilePanelScene</ClassOverride>
+<Visual>mobyslot_GCard</Visual>
+<ImagePath>CreateNewProfileSlot.jpg</ImagePath>
+</Properties>
+<XuiGroup>
+<Properties>
+<Id>background</Id>
+<Width>480.000000</Width>
+<Height>300.000000</Height>
+<ColorWriteFlags>7</ColorWriteFlags>
+</Properties>
+<XuiFigure>
+<Properties>
+<Id>Gray</Id>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+<Position>0.001129,0.039551,0.000000</Position>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f0f</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0xff7c8283</FillColor>
+<Gradient>
+<Properties>
+<NumStops>2</NumStops>
+<StopColor index="0">0xffbf0f0f</StopColor>
+<StopColor index="1">0xff350f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">1.000000</StopPos>
+</Properties>
+</Gradient>
+<Rotation>-90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,480.000000,0.000000,0,480.000000,0.000000,480.000000,0.000000,480.000000,300.000000,0,480.000000,300.000000,480.000000,300.000000,0.000000,300.000000,0,0.000000,300.000000,0.000000,300.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Id>BottomCover</Id>
+<Width>420.000000</Width>
+<Height>85.039490</Height>
+<Position>0.001129,235.000031,0.000000</Position>
+<BlendMode>1</BlendMode>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f0f</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>2</FillType>
+<FillColor>0xff7c8283</FillColor>
+<Gradient>
+<Properties>
+<NumStops>2</NumStops>
+<StopColor index="0">0x64000000</StopColor>
+<StopColor index="1">0x00000000</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.960784</StopPos>
+</Properties>
+</Gradient>
+<Translation>0.250000,0.000000,0.000000</Translation>
+<Scale>1.000000,0.700000,1.000000</Scale>
+<Rotation>90.000000</Rotation>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,480.000000,0.000000,0,480.000000,0.000000,480.000000,0.000000,480.000000,300.000000,0,480.000000,300.000000,480.000000,300.000000,0.000000,300.000000,0,0.000000,300.000000,0.000000,300.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+</XuiGroup>
+<XuiFigure>
+<Properties>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+<ColorWriteFlags>7</ColorWriteFlags>
+<Stroke>
+<Properties>
+<StrokeColor>0xff0f0f80</StrokeColor>
+</Properties>
+</Stroke>
+<Fill>
+<Properties>
+<FillType>4</FillType>
+<TextureFileName>CreateNewProfileSlot.jpg</TextureFileName>
+<Gradient>
+<Properties>
+<NumStops>2</NumStops>
+<StopColor index="0">0xffbf0f0f</StopColor>
+<StopColor index="1">0xff350f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,0.000000,0.000000,0.000000,0.000000,420.000000,0.000000,0,420.000000,0.000000,420.000000,0.000000,420.000000,320.000000,0,420.000000,320.000000,420.000000,320.000000,0.000000,320.000000,0,0.000000,320.000000,0.000000,320.000000,0.000000,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiAvatar>
+<Properties>
+<Id>Avatar</Id>
+<Width>199.000015</Width>
+<Height>286.930267</Height>
+<Position>-15.000000,17.069748,0.000000</Position>
+<Show>false</Show>
+<ColorWriteFlags>7</ColorWriteFlags>
+</Properties>
+</XuiAvatar>
+<XuiText>
+<Properties>
+<Id>XuiText1</Id>
+<Width>250.000000</Width>
+<Height>70.000000</Height>
+<Position>18.000000,248.000000,0.000000</Position>
+<ColorWriteFlags>7</ColorWriteFlags>
+<Text>Create Profile</Text>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0x640f0f0f</DropShadowColor>
+<PointSize>22.000000</PointSize>
+<TextStyle>1</TextStyle>
+<LineSpacingAdjust>-6</LineSpacingAdjust>
+</Properties>
+</XuiText>
+<XuiNineGrid>
+<Properties>
+<Id>XuiNineGrid1</Id>
+<Width>234.000000</Width>
+<Height>320.000000</Height>
+<ColorWriteFlags>8</ColorWriteFlags>
+<TextureFileName>common://CornerMask.png</TextureFileName>
+<LeftOffset>9</LeftOffset>
+<TopOffset>9</TopOffset>
+<RightOffset>9</RightOffset>
+<BottomOffset>9</BottomOffset>
+</Properties>
+</XuiNineGrid>
+</XuiScene>
+</XuiCanvas>

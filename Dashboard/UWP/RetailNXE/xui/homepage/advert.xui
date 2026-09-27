@@ -1,0 +1,23 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>XuiScene1</Id>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+<ClassOverride>CEpixAdvertScene</ClassOverride>
+</Properties>
+<XuiImage>
+<Properties>
+<Id>Skeleton</Id>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+<BlendMode>4</BlendMode>
+<ImagePath>common://postcard_placeholder_Glass.png</ImagePath>
+</Properties>
+</XuiImage>
+</XuiScene>
+</XuiCanvas>

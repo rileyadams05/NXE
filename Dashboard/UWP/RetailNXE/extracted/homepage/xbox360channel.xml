@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channeldef>
+    <description>%EvResStr(IDS_CHANNELNAME_XBOX360)%</description>
+
+    <!-- Slots -->
+    <slot>
+        <name>Disk in Tray</name>
+        <description>%EvResStr(IDS_DISKINTRAY)</description>
+        <epixid>DISK_IN_TRAY</epixid>
+        <onclick>
+            <button>A</button>
+            <action>KeyDown</action>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+    <slot>
+        <name>Gamer Card</name>
+        <description>%EvResStr(IDS_GAMERCARD)</description>
+        <epixid>GAMER_CARD</epixid>
+        <onclick>
+            <button>A</button>
+            <action>KeyDown</action>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Games Library</name>
+        <description>%EvResStr(IDS_GAMESLIBRARY)</description>
+        <epixid>GAMES_LIBRARY</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToGamesLibrary</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Video Library</name>
+        <description>%EvResStr(IDS_VIDEOLIBRARY)</description>
+        <epixid>VIDEOLIBRARY</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToVideoLibrary</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Music Library</name>
+        <description>%EvResStr(IDS_MUSICLIBRARY)</description>
+        <epixid>MUSICLIBRARY</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToMusicLibrary</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Picture Library</name>
+        <description>%EvResStr(IDS_PICTURELIBRARY)</description>
+        <epixid>PICTURELIBRARY</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPictureLibrary</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Windows Media Center</name>
+        <description>%EvResStr(IDS_MEDIACENTER)%</description>
+        <description2>%EvResStr(IDS_MEDIACENTER_LINE2)%</description2>
+        <epixid>MEDIA_CENTER</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToMediaCenter</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Microsoft Mediaroom</name>
+        <description></description>
+        <epixid>MEDIA_ROOM</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToMediaRoom</cmd>
+        </onclick>
+        <condition>EcoMediaroomEnabled()</condition>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>HD-DVD</name>
+        <description>%EvResStr(IDS_HDDVD)%</description>
+        <epixid>HDDVD_TRAY</epixid>
+        <onclick>
+            <button>A</button>
+            <action>KeyDown</action>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+        </onclick>
+        <condition>EcoHdDvdInstalled()</condition>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Solutions</name>
+        <description>%EvResStr(IDS_SOLUTIONS)%</description>
+        <description2>%EvResStr(IDS_SOLUTIONS_DESC)%</description2>
+        <epixid>SOLUTIONS</epixid>
+        <condition>!EcoLiveTier(None)</condition>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToSolutions</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <slot>
+        <name>Settings</name>
+        <description>%EvResStr(IDS_SETTINGS)%</description>
+        <epixid>SETTINGS</epixid>
+        <onclick>
+            <button>A</button>
+            <helptext>%EvResStr(IDS_SELECTSLOT)%</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToSettings</cmd>
+        </onclick>
+        <tracking>none</tracking>
+    </slot>
+
+    <!-- Epix objects -->
+    <epix>
+        <id>DISK_IN_TRAY</id>
+        <format>EpixScene</format>
+        <path>EsDvdTray</path>
+    </epix>
+    <epix>
+        <id>GAMER_CARD</id>
+        <format>EpixScene</format>
+        <path>EsGamerCard</path>
+    </epix>
+    <epix>
+        <id>HDDVD_TRAY</id>
+        <format>EpixScene</format>
+        <path>EsHdDvdTray</path>
+    </epix>
+
+    <epix>
+        <id>GAMES_LIBRARY</id>
+        <format>EpixScene</format>
+        <path>EsGameLibrary</path>
+    </epix>
+
+    <epix>
+        <id>VIDEOLIBRARY</id>
+        <format>EpixScene</format>
+        <path>EsVideoLibrary</path>
+    </epix>
+
+    <epix>
+        <id>MUSICLIBRARY</id>
+        <format>EpixScene</format>
+        <path>EsMusicLibrary</path>
+    </epix>
+
+    <epix>
+        <id>PICTURELIBRARY</id>
+        <format>EpixScene</format>
+        <path>EsPictureLibrary</path>
+    </epix>
+
+    <epix>
+        <id>MEDIA_CENTER</id>
+        <format>EpixScene</format>
+        <path>EsMediaCenter</path>
+    </epix>
+
+    <epix>
+        <id>MEDIA_ROOM</id>
+        <format>EpixScene</format>
+        <path>EsMediaRoom</path>
+    </epix>
+
+    <epix>
+        <id>SETTINGS</id>
+        <format>EpixScene</format>
+        <path>EsSettings</path>
+    </epix>
+
+    <epix>
+        <id>SOLUTIONS</id>
+        <format>EpixScene</format>
+        <path>EsSolutions</path>
+    </epix>
+</channeldef>

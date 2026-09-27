@@ -1,0 +1,54 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>720.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>Scene_Main</Id>
+<Width>720.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiFigure>
+<Properties>
+<Id>bgDrop</Id>
+<Width>812.000000</Width>
+<Height>28.000000</Height>
+<Position>-45.499969,60.000000,0.000000</Position>
+<Opacity>0.500000</Opacity>
+<Anchor>15</Anchor>
+<Fill>
+<Properties>
+<FillColor>0xff0f0f0f</FillColor>
+<Gradient>
+<Properties>
+<NumStops>4</NumStops>
+<StopColor index="0">0xff646464</StopColor>
+<StopColor index="1">0xff2c2c2c</StopColor>
+<StopColor index="2">0xff141414</StopColor>
+<StopColor index="3">0xff0f0f0f</StopColor>
+<StopPos index="0">0.000000</StopPos>
+<StopPos index="1">0.847059</StopPos>
+<StopPos index="2">0.964706</StopPos>
+<StopPos index="3">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>8,10.475002,0.000000,10.475002,0.000000,205.524734,0.000000,0,205.524734,0.000000,211.309891,0.000000,215.999710,4.656239,0,215.999710,10.400002,215.999710,10.400002,215.999710,40.600159,0,215.999710,40.600159,215.999710,46.343903,211.309891,51.000153,0,205.524734,51.000153,205.524734,51.000153,10.475002,51.000153,0,10.475002,51.000153,4.689818,51.000153,0.000000,46.343903,0,0.000000,40.600159,0.000000,40.600159,0.000000,10.400002,0,0.000000,10.400002,0.000000,4.656239,4.689818,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiLabel>
+<Properties>
+<Id>txt_Action</Id>
+<Width>578.000000</Width>
+<Height>25.000000</Height>
+<Position>88.000000,62.000000,0.000000</Position>
+<Visual>dvd_Label_Action</Visual>
+<Text>Play
+ </Text>
+</Properties>
+</XuiLabel>
+</XuiScene>
+</XuiCanvas>

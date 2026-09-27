@@ -1,0 +1,23 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>720.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>Scene_Main</Id>
+<Width>720.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiImage>
+<Properties>
+<Id>XuiImage1</Id>
+<Width>674.000000</Width>
+<Height>417.000000</Height>
+<Position>107.250015,94.050011,0.000000</Position>
+<Scale>0.750000,0.700000,1.000000</Scale>
+<ImagePath>sharedres://splash_360.png</ImagePath>
+</Properties>
+</XuiImage>
+</XuiScene>
+</XuiCanvas>

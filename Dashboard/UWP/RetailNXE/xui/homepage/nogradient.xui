@@ -1,0 +1,15 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>XuiScene1</Id>
+<Width>420.000000</Width>
+<Height>320.000000</Height>
+<ClassOverride>CEpixPictureScene</ClassOverride>
+<Visual>mobyslot_NoGradient</Visual>
+</Properties>
+</XuiScene>
+</XuiCanvas>

@@ -1,0 +1,21 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1280.000000</Width>
+<Height>720.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>XuiScene1</Id>
+<Width>1280.000000</Width>
+<Height>720.000000</Height>
+</Properties>
+<XuiHtmlElement>
+<Properties>
+<Id>Description</Id>
+<Width>544.000000</Width>
+<Height>32.000000</Height>
+<Position>96.000000,605.000000,0.000000</Position>
+</Properties>
+</XuiHtmlElement>
+</XuiScene>
+</XuiCanvas>

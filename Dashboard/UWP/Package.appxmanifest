@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap mp uap5 rescap">
+  <Identity Name="7ec06db1-df3a-4dd2-9882-70fbb0aa4584" Publisher="CN=SirMangler" Version="0.2.0.79" />
+  <mp:PhoneIdentity PhoneProductId="7ec06db1-df3a-4dd2-9882-70fbb0aa4584" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>NXE Dashboard</DisplayName>
+    <PublisherDisplayName>SirMangler</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17134.0" MaxVersionTested="10.0.22621.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="NxeDashboard.App">
+      <uap:VisualElements DisplayName="NXE Dashboard" Description="NXE dashboard" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="#000000">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <!-- Launch splash displays a plain black screen while NXE initializes -->
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#000000" uap5:Optional="true" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="nxe">
+            <uap:DisplayName>NXE Dashboard</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="nxe-dashboard">
+            <uap:DisplayName>NXE Dashboard</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="nxe-games">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.iso</uap:FileType>
+              <uap:FileType>.bin</uap:FileType>
+              <uap:FileType>.cue</uap:FileType>
+              <uap:FileType>.chd</uap:FileType>
+              <uap:FileType>.gba</uap:FileType>
+              <uap:FileType>.gb</uap:FileType>
+              <uap:FileType>.gbc</uap:FileType>
+              <uap:FileType>.nes</uap:FileType>
+              <uap:FileType>.sfc</uap:FileType>
+              <uap:FileType>.smc</uap:FileType>
+              <uap:FileType>.z64</uap:FileType>
+              <uap:FileType>.n64</uap:FileType>
+              <uap:FileType>.v64</uap:FileType>
+              <uap:FileType>.gcm</uap:FileType>
+              <uap:FileType>.wbfs</uap:FileType>
+              <uap:FileType>.rvz</uap:FileType>
+              <uap:FileType>.cso</uap:FileType>
+              <uap:FileType>.pbp</uap:FileType>
+              <uap:FileType>.xex</uap:FileType>
+              <uap:FileType>.gdi</uap:FileType>
+              <uap:FileType>.cdi</uap:FileType>
+              <uap:FileType>.md</uap:FileType>
+              <uap:FileType>.gen</uap:FileType>
+              <uap:FileType>.zip</uap:FileType>
+              <uap:FileType>.7z</uap:FileType>
+              <uap:FileType>.wad</uap:FileType>
+              <uap:FileType>.live</uap:FileType>
+              <uap:FileType>.con</uap:FileType>
+              <uap:FileType>.pirs</uap:FileType>
+              <uap:FileType>.elf</uap:FileType>
+              <uap:FileType>.prx</uap:FileType>
+              <uap:FileType>.nds</uap:FileType>
+              <uap:FileType>.vb</uap:FileType>
+              <uap:FileType>.pce</uap:FileType>
+              <uap:FileType>.sms</uap:FileType>
+              <uap:FileType>.gg</uap:FileType>
+              <uap:FileType>.sg</uap:FileType>
+              <uap:FileType>.nxeid</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
+    <uap:Capability Name="removableStorage" />
+    <rescap:Capability Name="broadFileSystemAccess" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,86 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+</Properties>
+<XuiImage>
+<Properties>
+<Id>XuiImage1</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<ImagePath>ico_64x_MU.png</ImagePath>
+</Properties>
+</XuiImage>
+<XuiGroup>
+<Properties>
+<Id>A</Id>
+<Width>25.000000</Width>
+<Height>25.000015</Height>
+<Position>38.221291,29.341099,0.000000</Position>
+</Properties>
+<XuiFigure>
+<Properties>
+<Width>28.000000</Width>
+<Height>28.000000</Height>
+<Position>-1.777778,-1.185170,0.000000</Position>
+<Opacity>0.650000</Opacity>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<FillColor>0xff0f0f4e</FillColor>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>2</NumStops>
+<StopColor index="0">0xff0f0f0f</StopColor>
+<StopColor index="1">0x000f0f0f</StopColor>
+<StopPos index="0">0.870588</StopPos>
+<StopPos index="1">0.956863</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,11.500000,0.000000,17.851257,0.000000,23.000000,5.148727,0,23.000000,11.500000,23.000000,17.851273,17.851257,23.000000,0,11.500000,23.000000,5.148743,23.000000,0.000000,17.851273,0,0.000000,11.500000,0.000000,5.148727,5.148743,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiFigure>
+<Properties>
+<Width>25.000000</Width>
+<Height>25.000000</Height>
+<Position>0.321831,-0.431645,0.000000</Position>
+<Pivot>-0.000061,-0.000015,0.000000</Pivot>
+<Fill>
+<Properties>
+<FillType>3</FillType>
+<FillColor>0xffd1bfe7</FillColor>
+<Gradient>
+<Properties>
+<Radial>true</Radial>
+<NumStops>2</NumStops>
+<StopColor index="0">0xffebebeb</StopColor>
+<StopColor index="1">0x000f0f0f</StopColor>
+<StopPos index="0">0.850980</StopPos>
+<StopPos index="1">1.000000</StopPos>
+</Properties>
+</Gradient>
+</Properties>
+</Fill>
+<Closed>true</Closed>
+<Points>4,11.500000,0.000000,17.851257,0.000000,23.000000,5.148727,0,23.000000,11.500000,23.000000,17.851273,17.851257,23.000000,0,11.500000,23.000000,5.148743,23.000000,0.000000,17.851273,0,0.000000,11.500000,0.000000,5.148727,5.148743,0.000000,0,</Points>
+</Properties>
+</XuiFigure>
+<XuiText>
+<Properties>
+<Id>XuiText13</Id>
+<Width>15.000000</Width>
+<Height>24.000000</Height>
+<Position>7.202468,-1.382244,0.000000</Position>
+<Text>B</Text>
+<TextColor>0xff0f0f0f</TextColor>
+<DropShadowColor>0x800f0f0f</DropShadowColor>
+<PointSize>15.000000</PointSize>
+</Properties>
+</XuiText>
+</XuiGroup>
+</XuiCanvas>

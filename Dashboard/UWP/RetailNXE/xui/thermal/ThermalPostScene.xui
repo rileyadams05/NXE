@@ -1,0 +1,67 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1120.000000</Width>
+<Height>770.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>Main</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+<BlendMode>1</BlendMode>
+<ClassOverride>CThemalPostMessage</ClassOverride>
+<Visual>BackgroundPanel</Visual>
+<DefaultFocus>LegacyControl1</DefaultFocus>
+</Properties>
+<XuiText>
+<Properties>
+<Id>XuiText1</Id>
+<Width>782.000000</Width>
+<Height>409.000000</Height>
+<Position>38.000000,36.000000,0.000000</Position>
+<Text>Your Xbox 360 console is designed to automatically shut down to protect it from insufficient ventilation.
+
+Like other electronic devices, the Xbox 360 requires proper ventilation. To help prevent another automatic shutdown:
+
+" Do not block any ventilation openings on the console or power supply.
+
+" Do not place the console or power supply on a bed, sofa, or other soft surface that may block ventilation openings.
+
+" Do not place the console or power supply in a confined space, such as a bookcase, rack, or stereo cabinet, unless the space is well ventilated.
+
+" Do not place the console or power supply near any heat sources, such as radiators, heat registers, stoves, or amplifiers.
+</Text>
+<TextColor>0xffebebeb</TextColor>
+<DropShadowColor>0xff0f0f0f</DropShadowColor>
+<TextStyle>1</TextStyle>
+</Properties>
+</XuiText>
+<LegacyControl>
+<Properties>
+<Id>LegacyControl1</Id>
+<Width>880.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+</LegacyControl>
+<XuiBackButton>
+<Properties>
+<Id>legend_a</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>555.000000,1058.000122,0.000000</Position>
+<Visual>legend_A</Visual>
+<UnfocusedInput>true</UnfocusedInput>
+<Text>Select</Text>
+</Properties>
+</XuiBackButton>
+<Timelines>
+<NamedFrames>
+<NamedFrame>
+<Name>End</Name>
+<Time>60</Time>
+<Command>stop</Command>
+</NamedFrame>
+</NamedFrames>
+</Timelines>
+</XuiScene>
+</XuiCanvas>

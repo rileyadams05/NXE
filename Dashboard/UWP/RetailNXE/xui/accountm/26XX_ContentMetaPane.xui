@@ -1,0 +1,64 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>640.000000</Width>
+<Height>480.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>MetaContent</Id>
+<Width>420.000000</Width>
+<Height>450.000000</Height>
+</Properties>
+<XuiLabel>
+<Properties>
+<Id>labPurchasedContent</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>0.000000,182.000000,0.000000</Position>
+<Visual>Label_Body_1line</Visual>
+<Text>&lt;current setting&gt;
+</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labPurchasedContentTag</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>0.000000,150.000000,0.000000</Position>
+<Visual>Label_Body_1line</Visual>
+<Text>Downloadable Content</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labCustomContent</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>0.000000,80.000000,0.000000</Position>
+<Visual>Label_Body_1line</Visual>
+<Text>&lt;current setting&gt;
+</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labCustomContentTag</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>0.000000,50.000000,0.000000</Position>
+<Visual>Label_Body_1line</Visual>
+<Text>Member Content</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labMetaHead</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Visual>Label_MetaHead_1line</Visual>
+<Text>Current Settings</Text>
+</Properties>
+</XuiLabel>
+</XuiScene>
+</XuiCanvas>

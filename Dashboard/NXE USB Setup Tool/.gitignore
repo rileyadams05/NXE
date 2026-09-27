@@ -1,0 +1,9 @@
+## Ignore Visual Studio build artifacts
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.pdb

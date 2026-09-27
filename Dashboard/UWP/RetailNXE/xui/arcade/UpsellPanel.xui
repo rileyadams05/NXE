@@ -1,0 +1,51 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>1120.000000</Width>
+<Height>770.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>Scene_Main</Id>
+<Width>460.000000</Width>
+<Height>495.000000</Height>
+<ClassOverride>UpsellPanel</ClassOverride>
+<Visual>DetailsPanel</Visual>
+<DefaultFocus>btnAction0</DefaultFocus>
+<TransFrom>FadeOut</TransFrom>
+<TransTo>FadeIn</TransTo>
+<TransBackFrom>FadeOut</TransBackFrom>
+<TransBackTo>FadeIn</TransBackTo>
+</Properties>
+<XuiLabel>
+<Properties>
+<Id>labTitle</Id>
+<Width>464.166656</Width>
+<Height>38.620636</Height>
+<Position>20.000000,19.000000,0.000000</Position>
+<Visual>Label_DetailsHeaderNoTitle</Visual>
+<Text>Sign in to Xbox LIVE</Text>
+</Properties>
+</XuiLabel>
+<XuiNavButton>
+<Properties>
+<Id>btnAction0</Id>
+<Width>415.000000</Width>
+<Height>47.000000</Height>
+<Position>20.000000,190.000000,0.000000</Position>
+<Visual>btn_MarketGray</Visual>
+<NavDown>btnAction1</NavDown>
+<Text>Sign In</Text>
+</Properties>
+</XuiNavButton>
+<XuiLabel>
+<Properties>
+<Id>labBody</Id>
+<Width>415.000000</Width>
+<Height>110.000000</Height>
+<Position>20.000000,75.000000,0.000000</Position>
+<Visual>Label_MovieDetails</Visual>
+<Text>Sign in to Xbox LIVE for more about this game.</Text>
+</Properties>
+</XuiLabel>
+</XuiScene>
+</XuiCanvas>

@@ -1,0 +1,60 @@
+﻿<XuiCanvas version="000c">
+<Properties>
+<Width>420.000000</Width>
+<Height>450.000000</Height>
+</Properties>
+<XuiScene>
+<Properties>
+<Id>SceneMeta</Id>
+<Width>420.000000</Width>
+<Height>450.000000</Height>
+<ClassOverride>NetworkDeviceMetaPanelScene</ClassOverride>
+</Properties>
+<XuiLabel>
+<Properties>
+<Id>labelDeviceType</Id>
+<Width>420.000000</Width>
+<Height>47.000000</Height>
+<Position>0.000000,2.000000,0.000000</Position>
+<Visual>Label_MetaHead_1line</Visual>
+<Text>&lt;device type&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labelDeviceConnection</Id>
+<Width>420.000000</Width>
+<Height>97.000000</Height>
+<Position>0.000000,41.000000,0.000000</Position>
+<Text>&lt;device connection string&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiLabel>
+<Properties>
+<Id>labelDeviceName</Id>
+<Width>420.000000</Width>
+<Height>35.000000</Height>
+<Position>0.000000,110.000000,0.000000</Position>
+<Text>&lt;device name&gt;</Text>
+</Properties>
+</XuiLabel>
+<XuiImage>
+<Properties>
+<Id>XuiImage1</Id>
+<Width>64.000000</Width>
+<Height>64.000000</Height>
+<Position>159.000000,170.000000,0.000000</Position>
+<ImagePath>ico_64x_MCE_white.png</ImagePath>
+</Properties>
+</XuiImage>
+<XuiLabel>
+<Properties>
+<Id>labelHelpText</Id>
+<Width>420.000000</Width>
+<Height>212.000000</Height>
+<Position>0.000000,254.000000,0.000000</Position>
+<Text>&lt;help text&gt;</Text>
+</Properties>
+</XuiLabel>
+</XuiScene>
+</XuiCanvas>
