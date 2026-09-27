@@ -1,0 +1,205 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2018 Ugo Cirmignani.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <syslog.h>
+#include <string.h>
+#include <errno.h>
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/resource.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#include "fileManagement.h"
+#include "../debugHelper.h"
+
+#define LOCKFILE "/var/run/uFTP.pid"
+#define LOCKMODE (S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH)
+#define MAXIMUM_IDLE_TIME			60
+
+static int WatchDogTime = 0, WatchDogTimerTimeOut = MAXIMUM_IDLE_TIME;
+
+int isProcessAlreadyRunning(void)
+{
+    int fd;
+    int returnCode;
+    char buf[101];
+    memset(buf, 0,101);
+    fd = open(LOCKFILE, O_RDWR|O_CREAT, LOCKMODE);
+    if (fd < 0) 
+    {
+        syslog(LOG_ERR, "can’t open %s: %s", LOCKFILE, strerror(errno));
+        exit(1);
+    }
+    //my_printf("\nFile pid opened.");
+    
+    if ((returnCode = FILE_LockFile(fd)) < 0) 
+    {
+        if (errno == EACCES || errno == EAGAIN) 
+        {
+        close(fd);
+        return(1);
+        }
+        syslog(LOG_ERR, "can’t lock %s: %s", LOCKFILE, strerror(errno));
+        exit(1);
+    }
+    
+    //my_printf("\nFILE_LockFile returnCode = %d", returnCode);    
+    ftruncate(fd, 0);
+    returnCode = snprintf(buf, 100, "%ld", (long)getpid());
+    returnCode = write(fd, buf, strnlen(buf, 100)+1);
+    return 0;
+}
+
+void daemonize(const char *cmd)
+	{
+    int
+    i;
+    pid_t pid;
+    struct rlimit rl;
+    struct sigaction sa;
+    
+    /*
+    * Clear file creation mask.
+    */
+    umask(0);
+    
+    /*
+    * Get maximum number of file descriptors.
+    */
+    if (getrlimit(RLIMIT_NOFILE, &rl) < 0)
+    my_printf("%s: can’t get file limit", cmd);
+    
+    /*
+    * Become a session leader to lose controlling TTY.
+    */
+    if ((pid = fork()) < 0)
+        my_printf("%s: can’t fork", cmd);
+    else if (pid != 0) /* parent */
+        exit(0);
+    
+    setsid();
+    
+    /*
+    * Ensure future opens won’t allocate controlling TTYs.
+    */
+    sa.sa_handler = SIG_IGN;
+    sigemptyset(&sa.sa_mask);
+    
+    sa.sa_flags = 0;
+    if (sigaction(SIGHUP, &sa, NULL) < 0)
+        my_printf("%s: can’t ignore SIGHUP", cmd);
+    if ((pid = fork()) < 0)
+        my_printf("%s: can’t fork", cmd);
+    else if (pid != 0) /* parent */
+    exit(0);
+    /*
+    * Change the current working directory to the root so
+    * we won’t prevent file systems from being unmounted.
+    */
+    if (chdir("/") < 0)
+        my_printf("%s: can’t change directory to /", cmd);
+    /*
+    * Close all open file descriptors.
+    */
+    if (rl.rlim_max == RLIM_INFINITY)
+        rl.rlim_max = 1024;
+    for (i = 0; i < rl.rlim_max; i++)
+        close(i);
+    /*
+    * Attach file descriptors 0, 1, and 2 to /dev/null.
+    */
+    open("/dev/null", O_RDWR);
+    dup(0);
+    dup(0);
+    }
+
+void respawnProcess(void)
+	{
+	  pid_t spawnedProcess;
+
+	  //Respawn
+	  while(1)
+			{
+			spawnedProcess = fork();
+
+			if (spawnedProcess == 0)
+				{
+				//is child, exit from the loop
+				my_printf("\nRespawn mode is active");
+				break;
+				}
+			else
+				{
+				int returnStatus;
+				waitpid(spawnedProcess, &returnStatus, 0);
+				my_printf("\nwaitpid done with status: %d", returnStatus);
+
+				if (WIFEXITED(returnStatus))
+					{
+					if (WEXITSTATUS(returnStatus) == 99)
+						{
+						my_printf("\nWIFEXITED verified the respawn is now disabled with return code %d.", WEXITSTATUS(returnStatus));
+						exit(3);
+						}
+					}
+				sleep(1);
+				}
+			}
+		return;
+	}
+
+void *watchDog(void * arg)
+{
+	WatchDogTime = (int)time(NULL);
+
+	while(1)
+	{
+		//Check if the time is expired
+		if ((int)time(NULL) - WatchDogTime > WatchDogTimerTimeOut)
+		{
+			my_printf("\nWatchDog Time Expired");
+			exit(98);
+		}
+
+		//my_printf("\nWatchDog Time ok %d, %d", (int)time(NULL), WatchDogTime);
+
+		sleep(5);
+	}
+}
+
+void setWatchDogTimeout(int theTime)
+{
+	WatchDogTimerTimeOut = theTime;
+}
+
+void updateWatchDogTime(int theTime)
+{
+	WatchDogTime = theTime;
+}

@@ -37,6 +37,9 @@ Dashboard/UWP/BundleArtifacts/
 Dashboard/NXE.Emulation.Native/NXE.Emul.B6D4B2F3/
 Web/
 Dashboard/AssetTranslation/XUIHelper/
+Assets/Aurora/
+Assets/RetailNXE/
+Assets/freestyledash/
 Release/*.appx
 Release/*.exe
 Release/*.png
