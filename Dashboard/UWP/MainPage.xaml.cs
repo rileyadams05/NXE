@@ -24,6 +24,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.Web.Http;
+using Windows.Data.Json;
 
 namespace NxeDashboard
 {
@@ -186,6 +188,7 @@ namespace NxeDashboard
                 StartupProgress.Value = 100;
                 await Task.Delay(120);
                 StartupGate.Visibility = Visibility.Collapsed;
+                _ = CheckForUpdateAsync();
             }
             catch (Exception exception)
             {
@@ -193,6 +196,30 @@ namespace NxeDashboard
                 StorageStatus.Text = "NXE dashboard load failed: " + exception.Message;
                 StorageStatus.Visibility = Visibility.Collapsed;
                 StartupStatus.Text = "NXE startup validation failed";
+            }
+        }
+
+        private async Task CheckForUpdateAsync()
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.UserAgent.ParseAdd("NXE-Dashboard");
+                    var json = await client.GetStringAsync(new Uri("https://api.github.com/repos/rileyadams05/NXE/releases/latest"));
+                    var release = JsonObject.Parse(json);
+                    if (!release.ContainsKey("tag_name")) return;
+                    var tag = release.GetNamedString("tag_name", string.Empty).TrimStart('v');
+                    Version latest;
+                    Version current;
+                    if (!Version.TryParse(tag, out latest) || !Version.TryParse(Package.Current.Id.Version.ToString(), out current)) return;
+                    if (latest > current)
+                        ShowGuideNotice("NXE update available. Use NXE USB Setup Tool on your PC.");
+                }
+            }
+            catch
+            {
+                // Update checks are advisory; offline consoles must still load normally.
             }
         }
 

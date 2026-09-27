@@ -38,6 +38,8 @@ Dashboard/NXE.Emulation.Native/NXE.Emul.B6D4B2F3/
 Web/
 Dashboard/AssetTranslation/XUIHelper/
 Release/*.appx
+Release/*.exe
+Release/*.png
 Release/*.msix
 Release/*.appxbundle
 Release/*.msixbundle
