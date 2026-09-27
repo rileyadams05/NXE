@@ -243,7 +243,7 @@ namespace NxeDashboard
             StartupStatus.Text = "Checking NXE configuration…";
             if (ApplicationData.Current.LocalSettings == null)
                 critical.Add("LocalSettings unavailable");
-            foreach (var asset in new[] { "a.png", "LB.png", "xb_menu.svg", "xb_view.svg", "y.png" })
+            foreach (var asset in new[] { "xb_a.svg", "xb_lb.svg", "xb_menu.svg", "xb_view.svg", "xb_y.svg" })
             {
                 try { await Package.Current.InstalledLocation.GetFileAsync("RetailNXE\\ControllerGlyphs\\Xbox\\" + asset); }
                 catch { critical.Add("Controller asset missing: " + asset); }
