@@ -316,17 +316,32 @@
                     </StackPanel>
                     <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10" VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left" Margin="0,0,0,2">
-                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_a.svg" Width="32" Height="32"
-                               Stretch="Uniform" />
+                        <Grid Width="32" Height="32">
+                            <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_a.svg" Width="32" Height="32"
+                                   Stretch="Uniform" />
+                            <TextBlock Text="A" Foreground="#FFA4E19C" FontFamily="Arial" FontSize="15"
+                                       FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Margin="0,1,0,0" IsHitTestVisible="False" />
+                        </Grid>
                         <TextBlock Text="Launch" Foreground="#FFE4E4E4" FontSize="19" VerticalAlignment="Center" />
                         <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_menu.svg" Width="32" Height="32"
                                Stretch="Uniform" VerticalAlignment="Center" Margin="18,0,0,0" />
                         <TextBlock Text="Details" Foreground="#FFE4E4E4" FontSize="17" VerticalAlignment="Center" />
-                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_lb.svg" Width="48" Height="32"
-                               Stretch="Uniform" VerticalAlignment="Center" Margin="18,0,0,0" />
+                        <Grid Width="48" Height="32" VerticalAlignment="Center" Margin="18,0,0,0">
+                            <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_lb.svg" Width="48" Height="32"
+                                   Stretch="Uniform" />
+                            <TextBlock Text="LB" Foreground="#FFD3E1E7" FontFamily="Arial" FontSize="10"
+                                       FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Margin="0,1,0,0" IsHitTestVisible="False" />
+                        </Grid>
                         <TextBlock Text="+" Foreground="#FFE4E4E4" FontSize="18" VerticalAlignment="Center" />
-                        <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_y.svg" Width="32" Height="32"
-                               Stretch="Uniform" VerticalAlignment="Center" />
+                        <Grid Width="32" Height="32" VerticalAlignment="Center">
+                            <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_y.svg" Width="32" Height="32"
+                                   Stretch="Uniform" />
+                            <TextBlock Text="Y" Foreground="#FFE1DE9C" FontFamily="Arial" FontSize="15"
+                                       FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Margin="0,1,0,0" IsHitTestVisible="False" />
+                        </Grid>
                         <TextBlock Text="Filter" Foreground="#FFE4E4E4" FontSize="17" VerticalAlignment="Center" />
                         <Image Source="ms-appx:///RetailNXE/ControllerGlyphs/Xbox/xb_view.svg" Width="32" Height="32"
                                Stretch="Uniform" VerticalAlignment="Center" Margin="18,0,0,0" />
