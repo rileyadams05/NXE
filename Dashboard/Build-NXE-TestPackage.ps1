@@ -191,9 +191,17 @@ Remove-Item (Join-Path $stageRoot 'AppxBlockMap.xml'),(Join-Path $stageRoot 'App
 if (Test-Path -LiteralPath $outputAppx) { Remove-Item -LiteralPath $outputAppx -Force }
 & $makeappx pack /d $stageRoot /p $outputAppx /o
 if ($LASTEXITCODE -ne 0) { throw 'makeappx failed.' }
-$pfx = Join-Path $dashboardRoot 'UWP\SirMangler-modern.pfx'
+$pfx = Join-Path $repoRoot 'Assets\NXE\EMU\XENIA\xenia-canary-uwp\xenia-canary-uwp_BuildSigningV2.pfx'
 Require-File $pfx 'development signing certificate'
-& $signtool sign /fd SHA256 /a /f $pfx /p '' $outputAppx
+# The recovered NXE/Xenia development certificate is passwordless. Import it into
+# the current user's personal store, then sign by thumbprint so signtool uses the
+# private key correctly (direct /f signing is unreliable with this PFX).
+$certThumbprint = 'A583F478A0ADA0AC1BB14699F40E082A1643746F'
+$certutil = Get-Command certutil.exe -ErrorAction SilentlyContinue
+if ($certutil) {
+    & $certutil.Source -f -user -p '' -importPFX My $pfx NoRoot | Out-Null
+}
+& $signtool sign /fd SHA256 /sha1 $certThumbprint $outputAppx
 if ($LASTEXITCODE -ne 0) { throw 'AppX signing failed.' }
 & $signtool verify /pa /all $outputAppx
 if ($LASTEXITCODE -ne 0) { throw 'AppX signature verification failed.' }
