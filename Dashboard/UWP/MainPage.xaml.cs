@@ -111,6 +111,7 @@ namespace NxeDashboard
         private int guideCommandIndex;
         private int guideBladeIndex = GuideLayout.HomeBlade;
         private int[] guideSelections;
+        private PerformanceSession performanceSession;
 
         public ObservableCollection<NxeGameRecord> Games { get; } =
             new ObservableCollection<NxeGameRecord>();
@@ -1052,6 +1053,11 @@ namespace NxeDashboard
 
         private void OnGameSessionEnded()
         {
+            if (performanceSession != null)
+            {
+                _ = performanceSession.CompleteAsync("engine-session-ended");
+                performanceSession = null;
+            }
             emulatorManager?.MarkReturned();
             if (navigation.Current == DashboardState.Guide)
                 CloseGuideToDashboard(null);
@@ -1517,6 +1523,8 @@ namespace NxeDashboard
                 if (string.Equals(game.BackendId, "xenia", StringComparison.OrdinalIgnoreCase))
                     await LogXeniaSourceDiagnosticAsync(game);
                 SaveDashboardState(game);
+                performanceSession = new PerformanceSession(
+                    game.BackendId, game.Platform, game.LaunchPath ?? game.PrimaryPath, string.Empty);
                 reportStatus?.Invoke("Launching with " + backend.DisplayName + "…");
                 await backend.LaunchAsync(game);
                 libraryCoordinator.RecordLaunch(game.InternalId);
@@ -1525,6 +1533,11 @@ namespace NxeDashboard
             }
             catch (Exception exception)
             {
+                if (performanceSession != null)
+                {
+                    _ = performanceSession.CompleteAsync("launch-failed");
+                    performanceSession = null;
+                }
                 reportStatus?.Invoke("Launch unavailable: " + exception.Message);
                 return false;
             }

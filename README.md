@@ -8,7 +8,7 @@ The current test architecture is deliberately hybrid:
 
 - Xenia Canary is linked into `NXE.Emulation.Native.dll`.
 - Dolphin UWP, XBSX2 UWP and RetroArch UWP are co-packaged engine applications.
-- Flycast is packaged as a libretro core for RetroArch.
+- Flycast and the verified Xbox Series RetroArch All Cores set are packaged as libretro cores for RetroArch.
 - The dashboard routes games by platform and persists a structured engine launch record before activating a co-packaged engine.
 
 The dashboard does not use the old URI launch path for normal game launch. No standalone PPSSPP application is included; PSP is routed to RetroArch when a verified PPSSPP core is present.
@@ -26,10 +26,10 @@ NXE exposes the console FTP service and the local management service. Connect ma
 Use a Visual Studio Developer PowerShell with the Windows SDK, MSBuild, MakeAppx and SignTool available:
 
 ```powershell
-& .\Dashboard\Build-NXE-TestPackage.ps1 -Version 0.2.0.79
+& .\Dashboard\Build-NXE-TestPackage.ps1 -Version 0.2.0.80 -RetroArchAllCoresAppx .\Builds\RetroArch-SeriesConsoles-AllCores.appx
 ```
 
-The script builds the dashboard and native bridge, verifies the required engine payloads, creates a clean staging directory, generates the multi-application manifest, packs and signs the AppX, verifies the signature and prints the SHA-256. The development certificate is local-only and must never be committed.
+The script builds the dashboard and native bridge, extracts the official Xbox Series RetroArch All Cores AppX, fails if any required system core is absent, creates a clean staging directory, generates the multi-application manifest, packs and signs the AppX, verifies the signature and prints the SHA-256. The development certificate is local-only and must never be committed.
 
 ## Sideload/test
 
@@ -37,7 +37,7 @@ Install the resulting AppX in Xbox Developer Mode with the normal Device Portal 
 
 ## Supported routing
 
-Xbox 360 → Xenia; PS2 → XBSX2; GameCube/Wii → Dolphin; Dreamcast/NAOMI → Flycast; PSP, PS1 and classic systems → RetroArch only when the corresponding packaged core exists. Unsupported systems must remain unavailable rather than being advertised as runnable.
+Xbox 360 → Xenia; PS2 → XBSX2; GameCube/Wii → Dolphin; Dreamcast/NAOMI → Flycast; PSP, PS1 and classic systems → RetroArch with automatic core selection. The build-time required-core manifest prevents a package from being produced when a configured core is missing.
 
 ## Source layout
 

@@ -2,7 +2,8 @@
 param(
     [string]$Version = '0.2.0.79',
     [string]$Configuration = 'Release',
-    [string]$Platform = 'x64'
+    [string]$Platform = 'x64',
+    [string]$RetroArchAllCoresAppx = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -15,6 +16,7 @@ $workRoot = Join-Path $repoRoot 'Builds\NxeReproduciblePackage'
 $stageRoot = Join-Path $workRoot 'Stage'
 $dashboardAppx = Join-Path $workRoot 'Dashboard.appx'
 $outputAppx = Join-Path $releaseRoot ("NXE Dashboard {0}.appx" -f $Version)
+$retroArchCoreStage = Join-Path $workRoot 'RetroArchAllCores'
 
 function Resolve-Tool([string]$name) {
     $command = Get-Command $name -ErrorAction SilentlyContinue
@@ -82,11 +84,69 @@ $flycast = Join-Path $repoRoot 'Assets\NXE\EMU\flycast\build-nxe-libretro-uwp\Re
 $dolphin = Join-Path $repoRoot 'Builds\SternXD-Dolphin\Build\x64\Release\DolphinWinRT\bin\DolphinWinRT.exe'
 $xbsx2 = Join-Path $repoRoot 'Assets\NXE\EMU\XBSX2\bin\pcsx2-uwpx64.exe'
 $retroarch = Join-Path $repoRoot 'Assets\NXE\EMU\RetroArch\pkg\msvc-uwp\x64\Release\RetroArch-msvcUWP\RetroArch-msvcUWP.exe'
+$requiredRetroArchCores = @(
+    @('stella_libretro.dll'),
+    @('a5200_libretro.dll'),
+    @('prosystem_libretro.dll'),
+    @('virtualjaguar_libretro.dll'),
+    @('handy_libretro.dll'),
+    @('mesen_libretro.dll','fceumm_libretro.dll'),
+    @('snes9x_libretro.dll'),
+    @('mupen64plus_next_libretro.dll','parallel_n64_libretro.dll'),
+    @('gambatte_libretro.dll','mgba_libretro.dll'),
+    @('mgba_libretro.dll'),
+    @('melonds_libretro.dll','desmume_libretro.dll'),
+    @('mednafen_vb_libretro.dll'),
+    @('genesis_plus_gx_libretro.dll','picodrive_libretro.dll'),
+    @('mednafen_saturn_libretro.dll','yabause_libretro.dll'),
+    @('pcsx_rearmed_libretro.dll','beetle_psx_hw_libretro.dll'),
+    @('ppsspp_libretro.dll'),
+    @('mednafen_pce_fast_libretro.dll'),
+    @('mednafen_supergrafx_libretro.dll'),
+    @('mednafen_pcfx_libretro.dll'),
+    @('fbneo_libretro.dll'),
+    @('mednafen_ngp_libretro.dll'),
+    @('mednafen_wswan_libretro.dll'),
+    @('opera_libretro.dll'),
+    @('gearcoleco_libretro.dll'),
+    @('freeintv_libretro.dll'),
+    @('vecx_libretro.dll'),
+    @('o2em_libretro.dll'),
+    @('freechaf_libretro.dll'),
+    @('pokemini_libretro.dll'),
+    @('mame2003_plus_libretro.dll')
+)
 Require-File $native 'native engine bridge'
 Require-File $flycast 'Flycast core'
 Require-File $dolphin 'Dolphin UWP engine'
 Require-File $xbsx2 'XBSX2 UWP engine'
 Require-File $retroarch 'RetroArch UWP engine'
+
+if ([string]::IsNullOrWhiteSpace($RetroArchAllCoresAppx)) {
+    $RetroArchAllCoresAppx = Join-Path $repoRoot 'Builds\RetroArch-SeriesConsoles-AllCores.appx'
+}
+Require-File $RetroArchAllCoresAppx 'RetroArch Series All Cores AppX'
+if (-not (Test-Path -LiteralPath $retroArchCoreStage)) {
+    New-Item -ItemType Directory -Force -Path $retroArchCoreStage | Out-Null
+    & $makeappx unpack /p $RetroArchAllCoresAppx /d $retroArchCoreStage /o | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw 'Could not unpack RetroArch Series All Cores AppX.' }
+}
+$retroArchCoreSource = Join-Path $retroArchCoreStage 'cores'
+if (-not (Test-Path -LiteralPath $retroArchCoreSource -PathType Container)) {
+    throw "RetroArch extracted core directory is missing: $retroArchCoreSource"
+}
+$selectedRetroArchCores = New-Object System.Collections.Generic.List[string]
+foreach ($candidates in $requiredRetroArchCores) {
+    $selected = $null
+    foreach ($candidate in $candidates) {
+        $candidatePath = Join-Path $retroArchCoreSource $candidate
+        if (Test-Path -LiteralPath $candidatePath -PathType Leaf) { $selected = $candidatePath; break }
+    }
+    if (-not $selected) {
+        throw ('Required RetroArch core missing: ' + ($candidates -join ' or '))
+    }
+    $selectedRetroArchCores.Add($selected)
+}
 
 Copy-Item $native (Join-Path $stageRoot 'NXE.Emulation.Native.dll') -Force
 New-Item -ItemType Directory -Force -Path (Join-Path $stageRoot 'Cores'),(Join-Path $stageRoot 'Engines\Dolphin'),(Join-Path $stageRoot 'Engines\XBSX2'),(Join-Path $stageRoot 'Engines\RetroArch\cores') | Out-Null
@@ -99,7 +159,11 @@ $retroarchRoot = Split-Path -Parent $retroarch
 Copy-Item (Join-Path $dolphinRoot '*') (Join-Path $stageRoot 'Engines\Dolphin') -Recurse -Force
 Copy-Item (Join-Path $xbsx2Root '*') (Join-Path $stageRoot 'Engines\XBSX2') -Recurse -Force
 Copy-Item (Join-Path $retroarchRoot '*') (Join-Path $stageRoot 'Engines\RetroArch') -Recurse -Force
-# Keep the core in the canonical NXE location even when RetroArch's build tree has its own cores folder.
+# Copy the verified Xbox Series core set into the canonical NXE location.
+foreach ($corePath in $selectedRetroArchCores) {
+    Copy-Item $corePath (Join-Path $stageRoot ('Engines\RetroArch\cores\' + [IO.Path]::GetFileName($corePath))) -Force
+}
+# Keep the NXE-tested Flycast build in the canonical location.
 Copy-Item $flycast (Join-Path $stageRoot 'Engines\RetroArch\cores\flycast_libretro.dll') -Force
 
 $manifestPath = Join-Path $stageRoot 'AppxManifest.xml'

@@ -90,8 +90,11 @@ namespace NxeDashboard.Runtime
                 "Engine=" + backendId,
                 "System=" + (game.Platform ?? string.Empty),
                 "Core=" + core,
+                "CorePath=" + core,
                 "GamePath=" + (game.LaunchPath ?? game.PrimaryPath ?? string.Empty),
                 "CreatedUtc=" + DateTimeOffset.UtcNow.ToString("o"),
+                "Timestamp=" + DateTimeOffset.UtcNow.ToString("o"),
+                "PerformanceOverlay=Basic",
                 "Consumed=False",
                 string.Empty
             });

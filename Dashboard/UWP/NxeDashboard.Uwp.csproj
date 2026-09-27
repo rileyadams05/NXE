@@ -53,6 +53,7 @@
     <Compile Include="Runtime\UwpLibraryCoordinator.cs" />
     <Compile Include="Runtime\UwpBackendLaunchAdapter.cs" />
     <Compile Include="Runtime\EmbeddedEmulatorHost.cs" />
+    <Compile Include="Runtime\PerformanceSession.cs" />
     <Compile Include="Navigation\DashboardNavigationState.cs" />
     <Compile Include="Navigation\DashboardLibraryView.cs" />
     <Compile Include="Navigation\GameDriveReadiness.cs" />
